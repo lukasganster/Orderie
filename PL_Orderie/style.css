@@ -1,0 +1,12 @@
+﻿body {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+div#login{
+    width:70%;
+    text-align:center;
+    margin: 0 auto;
+    background-color: lightblue;
+}

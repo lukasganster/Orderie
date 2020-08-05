@@ -18,16 +18,19 @@ namespace PL_Orderie
 
         protected void buttonLogin_Click(object sender, EventArgs e)
         {
-            String email = textEmail.Text.ToString();
+            String username = textUsername.Text.ToString();
             String pwd = textPwd.Text.ToString();
-            Boolean loginOk = BO_Orderie.Main.login(email, pwd);
+            Boolean loginOk = BO_Orderie.Main.login(username, pwd);
             if (loginOk)
             {
-                label.Text = "true";
+                labelHint.Text = "true";
+                Session["username"] = username;
+                Session["pwd"] = pwd;
+                Response.Redirect("overview.aspx");
             }
             else
             {
-                label.Text = "false";
+                labelHint.Text = "false";
             }
         }
     }

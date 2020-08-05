@@ -33,22 +33,22 @@ namespace PL_Orderie
         protected global::System.Web.UI.WebControls.Label label;
 
         /// <summary>
-        /// labelEmail-Steuerelement
+        /// labelUsername-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelEmail;
+        protected global::System.Web.UI.WebControls.Label labelUsername;
 
         /// <summary>
-        /// textEmail-Steuerelement
+        /// textUsername-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textEmail;
+        protected global::System.Web.UI.WebControls.TextBox textUsername;
 
         /// <summary>
         /// labelPwd-Steuerelement
@@ -76,5 +76,14 @@ namespace PL_Orderie
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buttonLogin;
+
+        /// <summary>
+        /// labelHint-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelHint;
     }
 }
