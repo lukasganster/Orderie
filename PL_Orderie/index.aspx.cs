@@ -15,5 +15,20 @@ namespace PL_Orderie
             label.Text = BO_Orderie.Main.getUsers();
             Console.WriteLine(BO_Orderie.Main.getUsers());
         }
+
+        protected void buttonLogin_Click(object sender, EventArgs e)
+        {
+            String email = textEmail.Text.ToString();
+            String pwd = textPwd.Text.ToString();
+            Boolean loginOk = BO_Orderie.Main.login(email, pwd);
+            if (loginOk)
+            {
+                label.Text = "true";
+            }
+            else
+            {
+                label.Text = "false";
+            }
+        }
     }
 }

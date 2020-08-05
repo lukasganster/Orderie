@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 
 namespace BO_Orderie
@@ -32,6 +33,19 @@ namespace BO_Orderie
                 s += u.firstName + "," + u.lastName + "," + u.isManager;
             }
             return s;
+        }
+
+        public static Boolean login(String email, String pwd)
+        {
+            Users us = BO_Orderie.User.LoadAll();
+            foreach (User u in us)
+            {
+                if(u.email.Equals(email) && u.pwd.Equals(pwd))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
