@@ -12,8 +12,7 @@ namespace PL_Orderie
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            label.Text = BO_Orderie.Main.getUsers();
-            Console.WriteLine(BO_Orderie.Main.getUsers());
+
         }
 
         protected void buttonLogin_Click(object sender, EventArgs e)
