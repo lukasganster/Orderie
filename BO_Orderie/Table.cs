@@ -69,5 +69,26 @@ namespace BO_Orderie
             
             return singleTable;
         }
+        //view active orders with corresponding products for this table
+
+        public static Orders LoadOrdersForTable(Table selectedTable)
+        {
+            SqlCommand cmd = new SqlCommand("select orderID,userId from Tables t join Orders o on t.tableID = o.tableID where t.TableID = @t_id and o.paid = 0", Main.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("t_id", selectedTable.tableID));
+            SqlDataReader reader = cmd.ExecuteReader();
+            Orders allOrders = new Orders(); //new empty Orders List
+            while (reader.Read())
+            {
+                Order oneOrder = new Order();
+                oneOrder.orderID = reader.GetString(0);
+                oneOrder.table = selectedTable;
+                oneOrder.user = BO_Orderie.User.getUserById(reader.GetString(1));
+                oneOrder.products = BO_Orderie.Product.LoadProductsForOrder(oneOrder);
+                allOrders.Add(oneOrder);
+            }
+            return allOrders;
+        }
+
+
     }
 }

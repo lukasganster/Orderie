@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+            <nav>
+            <div>
+                <a href="#">back</a>
+            </div>
+            <div>
+                logo
+            </div>
+        </nav>
     <form id="form1" runat="server">
         
         <h1>Create a new order</h1>
@@ -35,7 +43,7 @@
 
         <asp:Button CssClass="button" runat="server" Text="Add product ➕" ID="addProduct" OnClick="addProduct_Click" />
         <asp:Button CssClass="button" runat="server" Text="Finish order" ID="finishOrder" OnClick="finishOrder_Click" />
-        <asp:Label runat="server" Text="Label" ID="label"></asp:Label>
+        
     </form>
 </body>
 </html>

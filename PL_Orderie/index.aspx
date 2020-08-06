@@ -6,12 +6,18 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Orderie Login</title>
-<%--    <link rel="stylesheet" href="style.css" />--%>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <nav>
+            <div>
+                <a href="#">back</a>
+            </div>
+            <div>
+                logo
+            </div>
+        </nav>
         <asp:Label ID="label" runat="server" Text="Orderie Login"></asp:Label>
         <div>
             <asp:Label ID="labelUsername" runat="server" Text="Username:"></asp:Label>
@@ -19,7 +25,7 @@
             <br />
             <asp:Label ID="labelPwd" runat="server" Text="Password:"></asp:Label>
             <asp:TextBox ID="textPwd" runat="server"></asp:TextBox>
-                <br />
+            <br />
             <asp:Button ID="buttonLogin" runat="server" Text="Login" OnClick="buttonLogin_Click" />
             <br />
             <asp:Label ID="labelHint" runat="server" Text="Label"></asp:Label>

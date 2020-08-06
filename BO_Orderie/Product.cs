@@ -60,6 +60,22 @@ namespace BO_Orderie
 
             return singleProduct;
         }
+
+        internal static Products LoadProductsForOrder(Order o)
+        {
+            SqlCommand cmd = new SqlCommand("select p.productID, p.productCategory, p.productName, p.price, p.currency from Orders o join ProductsToOrder po on o.orderID = po.orderID join Products p on po.productID = p.productID where o.orderID = @o_id", Main.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("o_id", o.orderID));
+            SqlDataReader reader = cmd.ExecuteReader();
+            Products allRows = new Products();      //empty initialization list
+            while (reader.Read())
+            {
+                Product singleProduct = fillProductFromSQLDataReader(reader);
+                allRows.Add(singleProduct);
+            }
+            return allRows;
+        }
+
+
     }
 
 }

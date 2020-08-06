@@ -56,7 +56,7 @@ namespace PL_Orderie
             }
 
             BO_Orderie.Table t = (BO_Orderie.Table)Session["selectedTable"];
-            Response.Write("<script>alert('" + t.tableName + "')</script>");
+            // Response.Write("<script>alert('" + t.tableName + "')</script>");
         }
 
         protected void chooseFromProducts(object sender, ListViewSelectEventArgs e)

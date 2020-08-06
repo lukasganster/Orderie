@@ -13,11 +13,8 @@ namespace PL_Orderie
 
         private Tables tables;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             String u = "";
             String pw = "";
             if (Session["username"] != null && Session["password"] != null)
@@ -26,7 +23,7 @@ namespace PL_Orderie
                 pw = Session["password"].ToString();
             }
             if (Session["loggedIn"] != null)
-            {
+            {                                                       //edit was kommt da rein?
             }
             else
             {
@@ -40,7 +37,6 @@ namespace PL_Orderie
                 Session["tables"] = tables; // die heb ich mir in der Session auf
                 GVtables.DataSource = tables;
                 GVtables.DataBind(); //dadurch wirds angezeigt
-
             }
             else
             {

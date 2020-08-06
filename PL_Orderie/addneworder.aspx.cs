@@ -57,7 +57,7 @@ namespace PL_Orderie
 
                 Session["selectedProducts"] = selectedProducts;
 
-                Response.Write("<script>alert('2here')</script>");    
+               // Response.Write("<script>alert('2here')</script>");    
             }
             else
             {
@@ -84,7 +84,7 @@ namespace PL_Orderie
         {
             BO_Orderie.Table t = tables[ddTables.SelectedIndex];
             Session["selectedTable"] = t;
-            Response.Write("<script>alert('" + t.tableName + "')</script>");
+            // Response.Write("<script>alert('" + t.tableName + "')</script>");
             
         }
 
@@ -99,8 +99,8 @@ namespace PL_Orderie
                 user = u
 
             };
-            label.Text = o.table.tableName + " " + o.paid + " - " + o.user.userID + " ---" + o.products.Count;
             o.SaveOrder();
+            Response.Redirect("activeorders.aspx");
         }
 
         protected void deleteFromOrder(object sender, ListViewDeleteEventArgs e)

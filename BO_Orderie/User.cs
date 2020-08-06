@@ -116,5 +116,31 @@ namespace BO_Orderie
             return singleUser;
         }
 
+        public static User getUserById(string id)
+        {
+            Users us = BO_Orderie.User.LoadAll();
+            foreach (User u in us)
+            {
+                if (u.userID.Equals(id))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
+        public static User getUserByUsername(string username)
+        {
+            Users us = BO_Orderie.User.LoadAll();
+            foreach (User u in us)
+            {
+                if (u.username.Equals(username))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
     }
 }

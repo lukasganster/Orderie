@@ -10,7 +10,7 @@ namespace BO_Orderie
     public class Order
     {
         private string m_orderID = "";
-        private int m_tableID;
+        private string m_tableID;
         private bool m_paid;
         private int m_userID;
         private User m_user;
@@ -22,7 +22,7 @@ namespace BO_Orderie
             get { return m_orderID;  }
             internal set { m_orderID = value;  }
         }
-        public int tableID
+        public string tableID
         {
             get { return m_tableID;  }
             set { m_tableID = value; }
@@ -54,6 +54,18 @@ namespace BO_Orderie
         {
             get { return m_table; }
             set { m_table = value; }
+        }
+
+        public float priceSum
+        {
+            get {
+                float i = 0;
+                foreach(Product p in this.products)
+                    {
+                    i += p.price;
+                    }
+                return i;
+            }
         }
         //save
         public bool SaveOrder()
@@ -93,5 +105,14 @@ namespace BO_Orderie
             return (cmd.ExecuteNonQuery() > 0);
         }
 
+        public bool UpdatePaid()
+        {
+            string SQL = "update Orders set paid = 1 where orderID = @o_id";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = SQL;
+            cmd.Connection = Main.GetConnection();
+            cmd.Parameters.Add(new SqlParameter("o_id", this.orderID));
+            return (cmd.ExecuteNonQuery() > 0);
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace PL_Orderie
                 labelHint.Text = "true";
                 Session["username"] = username;
                 Session["pwd"] = pwd;
-                Session["user"] = BO_Orderie.Main.getUser(username);
+                Session["user"] = BO_Orderie.User.getUserByUsername(username);
                 Session["loggedIn"] = true;
                 Response.Redirect("overview.aspx");
             }

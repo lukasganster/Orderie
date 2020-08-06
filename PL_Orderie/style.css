@@ -84,9 +84,10 @@ span.price{
     text-align:right;
 }
 
-span.productCategory{
-    text-transform:uppercase;
-    font-size:70%;
+span.productCategory {
+    text-transform: uppercase;
+    font-size: 50%;
+    letter-spacing: 1px;
 }
 
 .label {
@@ -116,4 +117,70 @@ label::after {
 
 select{
     border: 1px solid black;
+}
+
+.orders {
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+    background-color: #90ee902e;
+    border-left: 1px solid lightgray;
+}
+
+.orderId {
+    font-weight: 900;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.productInOrder {
+    margin-left: 50px;
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+    background-color: #90ee902e;
+    border-left: 1px solid lightgray;
+}
+
+.productInOrder:nth-child(even) {
+    background-color: #00000029;
+}
+
+
+.productInOrder span {
+    width: 24%;
+    display: inline-block;
+}
+
+.orderBottom {
+    display: inline-block;
+    text-align: center;
+    width: 49%;
+    margin-top: 10px;
+    font-size: 60%;
+}
+}
+
+.orderUser::before{
+    content: 'from: ';
+}
+
+.orderSum::after{
+    content: ' EUR';
+}
+
+.orderSum {
+    font-weight: 700;
+    border-top: 1px dashed black;
+    padding-top: 10px;
+}
+
+nav {
+   height:50px;
+   padding:10px;
+   background-color:midnightblue;
+    width:100%;
+}
+
+nav div {
+    display:inline-block;
+    width:50%;
 }
