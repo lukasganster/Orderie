@@ -49,6 +49,19 @@ namespace BO_Orderie
             return false;
         }
 
+        public static User getUser(string username)
+        {
+            Users us = BO_Orderie.User.LoadAll();
+            foreach (User u in us)
+            {
+                if (u.username.Equals(username))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
 
     }
 }

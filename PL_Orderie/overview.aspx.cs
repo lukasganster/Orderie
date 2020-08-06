@@ -34,14 +34,14 @@ namespace PL_Orderie
         {
             Response.Redirect("activeorders.aspx");
         }
-        protected void buttonMain_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("maintenance.aspx");
-        }
-
         protected void buttonNew_Click1(object sender, EventArgs e)
         {
             Response.Redirect("addneworder.aspx");
+        }
+
+        protected void buttonMain_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("maintenance.aspx");
         }
     }
 }

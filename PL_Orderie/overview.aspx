@@ -14,8 +14,7 @@
         </div>
         <asp:Button ID="buttonNew" runat="server" Text="New Order" OnClick="buttonNew_Click1" />
         <asp:Button ID="buttonActive" runat="server" Text="Active Order" OnClick="buttonActive_Click" />
-        <asp:Button ID="buttonMain" runat="server" Text="Maintenance" />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Button ID="buttonMain" runat="server" Text="Maintenance" OnClick="buttonMain_Click"/>
     </form>
 </body>
 </html>

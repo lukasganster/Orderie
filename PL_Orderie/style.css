@@ -3,6 +3,7 @@
     padding:0;
     border:0;
     font-family:sans-serif;
+    font-size:20px;
 }
 
 div#login{
@@ -16,14 +17,35 @@ div#login{
     background-color:lightgreen;
 }
 
-.table, select {
+.table, select ,.button{
     padding: 30px 20px;
     width: 100%;
     border-bottom: 1px lightgrey solid;
 }
 
+.productOrder {
+    padding: 15px 20px;
+    width: 100%;
+    background-color:lightcyan;
+    border-bottom: 1px lightgrey solid;
+}
+
+select {
+    text-align-last: center;
+}
+
 input{
     border: 1px solid black;
+}
+
+#addProduct{
+    background-color: lightgreen;
+    color:black;
+}
+
+#finishOrder {
+    background: #282828;
+    color: lightgreen;
 }
 
 .tableHead{
@@ -40,4 +62,58 @@ input{
 
 .hide{
     display:none !important;
+}
+
+.products {
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+    background-color: #90ee902e;
+    border-left: 1px solid lightgray;
+}
+
+.marginLeft {
+    margin-left: 50px;
+}
+
+.products span {
+    width: 20%;
+    display: inline-block;
+}
+
+span.price{
+    text-align:right;
+}
+
+span.productCategory{
+    text-transform:uppercase;
+    font-size:70%;
+}
+
+.label {
+    width: 100%;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 60%;
+    margin-top: 20px;
+    margin-bottom:10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+label::after {
+    content: "";
+    width: 100%;
+    background: #90ee902e;
+    display: block;
+    height: 11px;
+    margin-top: -7px;
+}
+
+select{
+    border: 1px solid black;
 }

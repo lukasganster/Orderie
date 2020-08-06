@@ -16,6 +16,8 @@ namespace PL_Orderie
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             String u = "";
             String pw = "";
             if (Session["username"] != null && Session["password"] != null)

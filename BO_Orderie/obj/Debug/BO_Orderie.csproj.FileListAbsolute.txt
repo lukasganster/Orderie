@@ -1,6 +1,6 @@
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\bin\Debug\BO_Orderie.dll
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\bin\Debug\BO_Orderie.pdb
-C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csproj.CoreCompileInputs.cache
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
+C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache

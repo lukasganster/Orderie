@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="activeorders.aspx" />
     <Content Include="addneworder.aspx" />
+    <Content Include="addproducttoorder.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="maintenance.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="addneworder.aspx.designer.cs">
       <DependentUpon>addneworder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addproducttoorder.aspx.cs">
+      <DependentUpon>addproducttoorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addproducttoorder.aspx.designer.cs">
+      <DependentUpon>addproducttoorder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

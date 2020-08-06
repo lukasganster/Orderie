@@ -10,6 +10,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="buttonEditUsers" runat="server" Text="Users" />
+            <asp:Button ID="buttonEditTables" runat="server" Text="Tables" />
+            <asp:Button ID="buttonEditProducts" runat="server" Text="Products" />
         </div>
     </form>
 </body>
