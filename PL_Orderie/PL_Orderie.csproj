@@ -67,12 +67,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="activeorders.aspx" />
+    <Content Include="addneworder.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
+    <Content Include="maintenance.aspx" />
+    <Content Include="overview.aspx" />
     <Content Include="style.css" />
+    <Content Include="tableorders.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="activeorders.aspx.cs">
+      <DependentUpon>activeorders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="activeorders.aspx.designer.cs">
+      <DependentUpon>activeorders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addneworder.aspx.cs">
+      <DependentUpon>addneworder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addneworder.aspx.designer.cs">
+      <DependentUpon>addneworder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -83,7 +102,28 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="maintenance.aspx.cs">
+      <DependentUpon>maintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="maintenance.aspx.designer.cs">
+      <DependentUpon>maintenance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="overview.aspx.cs">
+      <DependentUpon>overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="overview.aspx.designer.cs">
+      <DependentUpon>overview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tableorders.aspx.cs">
+      <DependentUpon>tableorders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tableorders.aspx.designer.cs">
+      <DependentUpon>tableorders.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

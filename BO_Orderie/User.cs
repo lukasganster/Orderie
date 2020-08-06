@@ -21,13 +21,13 @@ namespace BO_Orderie
         {
             SqlCommand cmd = new SqlCommand("select userID, firstName, lastName, username, pwd, isManager from Users", Main.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
-            Users allUsers = new Users(); //initialisiere lehre Liste
+            Users allRows = new Users(); //initialisiere leere Liste
             while (reader.Read())
             {
                 User singleUser = fillUserFromSQLDataReader(reader);
-                allUsers.Add(singleUser);
+                allRows.Add(singleUser);
             }
-            return allUsers;
+            return allRows;
         }
 
         private static User fillUserFromSQLDataReader(SqlDataReader reader)

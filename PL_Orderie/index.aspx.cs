@@ -14,7 +14,6 @@ namespace PL_Orderie
         {
 
         }
-
         protected void buttonLogin_Click(object sender, EventArgs e)
         {
             String username = textUsername.Text.ToString();
@@ -25,6 +24,7 @@ namespace PL_Orderie
                 labelHint.Text = "true";
                 Session["username"] = username;
                 Session["pwd"] = pwd;
+                Session["loggedIn"] = true;
                 Response.Redirect("overview.aspx");
             }
             else

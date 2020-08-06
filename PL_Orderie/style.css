@@ -1,7 +1,8 @@
-﻿body {
+﻿body,* {
     margin:0;
     padding:0;
     border:0;
+    font-family:sans-serif;
 }
 
 div#login{
@@ -9,4 +10,34 @@ div#login{
     text-align:center;
     margin: 0 auto;
     background-color: lightblue;
+}
+
+.active{
+    background-color:lightgreen;
+}
+
+.table, select {
+    padding: 30px 20px;
+    width: 100%;
+    border-bottom: 1px lightgrey solid;
+}
+
+input{
+    border: 1px solid black;
+}
+
+.tableHead{
+    background-color: #181818;
+    color:white;
+    padding:10px 20px;
+    text-transform:uppercase;
+}
+
+.table span{
+    width:25%;
+    display:inline-block;
+}
+
+.hide{
+    display:none !important;
 }

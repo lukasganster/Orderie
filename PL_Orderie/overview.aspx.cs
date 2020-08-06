@@ -18,14 +18,30 @@ namespace PL_Orderie
                 u = Session["username"].ToString();
                 pw = Session["password"].ToString();
             }
-            if( (bool) Session["loggedIn"] == true)
+            if (Session["loggedIn"] != null)
             {
-                Console.WriteLine("ok");
             }
             else
             {
                 Response.Redirect("index.aspx");
             }
+        }
+        protected void buttonNew_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("neworder.aspx");
+        }
+        protected void buttonActive_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("activeorders.aspx");
+        }
+        protected void buttonMain_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("maintenance.aspx");
+        }
+
+        protected void buttonNew_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("addneworder.aspx");
         }
     }
 }
