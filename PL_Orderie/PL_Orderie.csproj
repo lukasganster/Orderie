@@ -70,10 +70,12 @@
     <Content Include="activeorders.aspx" />
     <Content Include="addneworder.aspx" />
     <Content Include="addproducttoorder.aspx" />
+    <Content Include="editproduct.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="maintenance.aspx" />
     <Content Include="overview.aspx" />
+    <Content Include="products.aspx" />
     <Content Include="style.css" />
     <Content Include="tableorders.aspx" />
     <Content Include="Web.config" />
@@ -100,6 +102,13 @@
     <Compile Include="addproducttoorder.aspx.designer.cs">
       <DependentUpon>addproducttoorder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="editproduct.aspx.cs">
+      <DependentUpon>editproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editproduct.aspx.designer.cs">
+      <DependentUpon>editproduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -123,6 +132,13 @@
     </Compile>
     <Compile Include="overview.aspx.designer.cs">
       <DependentUpon>overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tableorders.aspx.cs">

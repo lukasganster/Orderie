@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+     <nav>
+        <div>
+            <a href="#">back</a>
+        </div>
+        <div>
+            logo
+        </div>
+    </nav>
     <form id="form1" runat="server">
         <h1>
            <asp:Label ID="lblNr" runat="server" Text="X"></asp:Label>
@@ -19,7 +27,8 @@
             <asp:Panel runat="server" CssClass="orders">
                 <asp:Label ID="lblCat"  runat="server" Text='Order with the id:' />
                 <asp:Label ID="Label1" CssClass="orderId" runat="server" Text='<%# Eval("orderID") %>' />
-                <asp:LinkButton ID="buttonSelect" CommandName="Select"  runat="server" Text='mark as paid' />
+                <asp:Label ID="LabelTime" runat="server" Text='<%# Eval("timeOrdered") %>' />
+                <asp:LinkButton ID="buttonSelect" CssClass="buttonOrderie floatRight" CommandName="Select"  runat="server" Text='mark as paid' />
                 
                 <asp:ListView ID="orderProducts" runat="server" DataSource='<%# Eval("products") %>'>
                 <ItemTemplate>

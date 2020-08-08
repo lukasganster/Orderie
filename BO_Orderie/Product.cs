@@ -76,6 +76,51 @@ namespace BO_Orderie
         }
 
 
+        //insert new product
+        public bool SaveProduct()
+        {
+            string sql = "insert into products (productID, productCategory, productName, price, currency) values (@p_id, @p_ct,@p_pd,@p_pr,@p_cr)";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = sql;
+            cmd.Connection = Main.GetConnection();
+
+            m_productID = Guid.NewGuid().ToString();
+            cmd.Parameters.Add(new SqlParameter("p_id", this.m_productID));
+            cmd.Parameters.Add(new SqlParameter("p_ct", this.m_productCategory));
+            cmd.Parameters.Add(new SqlParameter("p_pd", this.m_productName));
+            cmd.Parameters.Add(new SqlParameter("p_pr", this.m_price));
+            cmd.Parameters.Add(new SqlParameter("p_cr", this.m_currency));
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+
+        public bool UpdateProduct()
+        {
+            string sql = "update Products set productCategory = @p_ct, productName = @p_pd, price = @p_pr, currency = @p_cr where productID = @p_id";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = sql;
+            cmd.Connection = Main.GetConnection();
+   
+            cmd.Parameters.Add(new SqlParameter("p_id", this.m_productID));
+            cmd.Parameters.Add(new SqlParameter("p_ct", this.m_productCategory));
+            cmd.Parameters.Add(new SqlParameter("p_pd", this.m_productName));
+            cmd.Parameters.Add(new SqlParameter("p_pr", this.m_price));
+            cmd.Parameters.Add(new SqlParameter("p_cr", this.m_currency));
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+
+        //delete product
+        public bool DeleteProduct()
+        {
+            string SQL = "delete from Products where productID = @p_id";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = SQL;
+            cmd.Connection = Main.GetConnection();
+            cmd.Parameters.Add(new SqlParameter("p_id", this.m_productID));
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+
     }
 
 }

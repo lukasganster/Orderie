@@ -30,7 +30,7 @@ namespace PL_Orderie
             }
             else
             {
-                labelHint.Text = "false";
+                labelHint.Text = "false " + BO_Orderie.Main.GetMD5Hash("test");
             }
         }
     }

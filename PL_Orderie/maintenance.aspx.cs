@@ -13,5 +13,10 @@ namespace PL_Orderie
         {
 
         }
+
+        protected void buttonEditProducts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("products.aspx");
+        }
     }
 }

@@ -23,7 +23,7 @@
                 <asp:Label ID="lblTable" runat="server" Text='<%# Eval("tableName") %>' />
                 <asp:Label ID="lblHasActiveOrdersActive" runat="server"  Text="Active" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "" : "hide" %>' />
                 <asp:Label ID="lblHasActiveOrdersEmpty" runat="server"  Text="Empty" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "hide" : "" %>' />
-                <asp:LinkButton ID="buttonSelect" CommandName="Select"  runat="server" Text='View Table' />
+                <asp:LinkButton ID="buttonSelect" CssClass="buttonOrderie" CommandName="Select"  runat="server" Text='View Table' />
             </asp:Panel>
         </ItemTemplate>
         </asp:ListView>

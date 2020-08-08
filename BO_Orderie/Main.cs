@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace BO_Orderie
 {
@@ -24,12 +25,31 @@ namespace BO_Orderie
             Users us = BO_Orderie.User.LoadAll();
             foreach (User u in us)
             {
-                if(u.username.Equals(username) && u.pwd.Equals(pwd))
+                string pwdHashed = GetMD5Hash(pwd);
+                if(u.username.Equals(username) && u.pwd.Equals(pwdHashed))
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        public static string GetMD5Hash(string TextToHash)
+        {
+            //Prüfen ob Daten übergeben wurden.
+            if ((TextToHash == null) || (TextToHash.Length == 0))
+            {
+                return string.Empty;
+            }
+
+            //MD5 Hash aus dem String berechnen. Dazu muss der string in ein Byte[]
+            //zerlegt werden. Danach muss das Resultat wieder zurück in ein string.
+            MD5 md5 = new MD5CryptoServiceProvider();
+            String salt = ".-+*1nvAD30mDkl?´ß1--";
+            String passwordPre = "Orderie_";
+            byte[] textToHash = System.Text.Encoding.Default.GetBytes(TextToHash+salt);
+            byte[] outp = md5.ComputeHash(textToHash);
+            return System.BitConverter.ToString(outp);
         }
 
 

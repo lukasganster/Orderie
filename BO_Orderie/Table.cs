@@ -73,13 +73,14 @@ namespace BO_Orderie
 
         public static Orders LoadOrdersForTable(Table selectedTable)
         {
-            SqlCommand cmd = new SqlCommand("select orderID,userId from Tables t join Orders o on t.tableID = o.tableID where t.TableID = @t_id and o.paid = 0", Main.GetConnection());
+            SqlCommand cmd = new SqlCommand("select orderID,userId,o.timeOrdered from Tables t join Orders o on t.tableID = o.tableID where t.TableID = @t_id and o.paid = 0", Main.GetConnection());
             cmd.Parameters.Add(new SqlParameter("t_id", selectedTable.tableID));
             SqlDataReader reader = cmd.ExecuteReader();
             Orders allOrders = new Orders(); //new empty Orders List
             while (reader.Read())
             {
                 Order oneOrder = new Order();
+                oneOrder.timeOrdered = reader.GetDateTime(2);
                 oneOrder.orderID = reader.GetString(0);
                 oneOrder.table = selectedTable;
                 oneOrder.user = BO_Orderie.User.getUserById(reader.GetString(1));

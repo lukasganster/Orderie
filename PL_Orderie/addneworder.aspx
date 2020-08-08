@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-            <nav>
-            <div>
-                <a href="#">back</a>
-            </div>
-            <div>
-                logo
-            </div>
-        </nav>
+     <nav>
+        <div>
+            <a href="#">back</a>
+        </div>
+        <div>
+            logo
+        </div>
+    </nav>
     <form id="form1" runat="server">
         
         <h1>Create a new order</h1>
@@ -36,7 +36,7 @@
                 <asp:Label ID="lblNr" runat="server" Text='<%# Eval("productName") %>' />
                 <asp:Label ID="lblTable" CssClass="price" runat="server" Text='<%# Eval("price") %>' />
                 <asp:Label ID="lblCurrency" runat="server" Text='<%# Eval("currency") %>' />
-                <asp:LinkButton ID="buttonDelete" CommandName="Delete"  runat="server" Text='Delete' />
+                <asp:LinkButton ID="buttonDelete" CommandName="Delete" CssClass="buttonOrderie buttonDelete" runat="server" Text='Delete' />
             </asp:Panel>
         </ItemTemplate>
         </asp:ListView>

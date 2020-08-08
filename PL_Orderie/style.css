@@ -184,3 +184,32 @@ nav div {
     display:inline-block;
     width:50%;
 }
+
+.buttonOrderie {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: 70%;
+    letter-spacing: 1px;
+    transition: 0.3s ease-in-out;
+}
+
+.buttonOrderie:hover {
+    background-color: #505050;
+
+}
+
+.buttonDelete{
+    background-color: darkred;
+}
+
+.buttonDelete:hover{
+    background-color:red;
+}
+
+.floatRight{
+    float:Right;
+}
