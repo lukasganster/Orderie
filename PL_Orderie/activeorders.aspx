@@ -1,4 +1,4 @@
-﻿<%@ page language="C#" autoeventwireup="true" codebehind="activeorders.aspx.cs" inherits="PL_Orderie.activeorders" %>
+﻿<%@ page language="C#" autoeventwireup="true" codebehind="ActiveOrders.aspx.cs" inherits="PL_Orderie.activeorders" %>
 
 <!DOCTYPE html>
 
@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="table tableHead">
-            <span>Nr</span>
-            <span>Tablename</span>
-            <span>Status</span>
-            <span></span>
+     <nav>
+        <div>
+            <span class="back" onclick="window.history.back();">ᐊ</span>
         </div>
-        <asp:ListView ID="GVtables" runat="server" OnSelectedIndexChanging="GVtables_SelectedIndexChanged" SelectionMode="Single">
+        <img src="images/logo.png" />
+    </nav>
+    <form id="form1" runat="server">
+        <asp:ListView ID="LVtables" runat="server" OnSelectedIndexChanging="GVtables_SelectedIndexChanged" SelectionMode="Single">
         <ItemTemplate>
             <asp:Panel runat="server" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "active table" : "inactive table" %>' CommandName="Select" >
                 <asp:Label ID="lblNr" runat="server" Text='<%# Eval("tableID") %>' />

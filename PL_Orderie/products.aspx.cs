@@ -11,58 +11,46 @@ namespace PL_Orderie
     public partial class products : System.Web.UI.Page
     {
 
-        BO_Orderie.Products p;
+        BO_Orderie.Products allProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
-
-
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
             if (!IsPostBack)
             {
-                p = BO_Orderie.Product.LoadAll();
-                GVProducts.DataSource = p;
+                allProducts = BO_Orderie.Product.LoadAll();
+                GVProducts.DataSource = allProducts;
                 GVProducts.DataBind();
             }
-
         }
 
         protected void addProduct_Click(object sender, EventArgs e)
         {
             Session["selectedProduct"] = null;
-            Response.Redirect("editproduct.aspx");
+            Response.Redirect("EditProduct.aspx");
         }
 
         protected void editProduct(object sender, ListViewSelectEventArgs e)
         {
-            p = BO_Orderie.Product.LoadAll();
-            Product product = p[e.NewSelectedIndex];
+            allProducts = BO_Orderie.Product.LoadAll();
+            Product product = allProducts[e.NewSelectedIndex];
             Session["selectedProduct"] = product;
-            Response.Redirect("editproduct.aspx");
+            Response.Redirect("EditProduct.aspx");
         }
 
         protected void deleteProduct(object sender, ListViewDeleteEventArgs e)
         {
-            p = BO_Orderie.Product.LoadAll();
-            Product product = p[e.ItemIndex];
+            allProducts = BO_Orderie.Product.LoadAll();
+            Product product = allProducts[e.ItemIndex];
             product.DeleteProduct();
-            p.Remove(product);
-            GVProducts.DataSource = p;
+            allProducts.Remove(product);
+            GVProducts.DataSource = allProducts;
             GVProducts.DataBind();
+        }
 
+        protected void GVProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

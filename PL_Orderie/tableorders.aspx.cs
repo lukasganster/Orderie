@@ -16,21 +16,8 @@ namespace PL_Orderie
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
-
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
             if (!IsPostBack)
             {
@@ -48,8 +35,7 @@ namespace PL_Orderie
             orders = BO_Orderie.Table.LoadOrdersForTable(currentTable);
             lblNr.Text += " (" + orders.Count +")";
 
-            if (orders.Count <= 0)
-                lblNr.Text = currentTable.tableName + " has no active orders";
+            if (orders.Count <= 0) lblNr.Text = currentTable.tableName + " has no active orders";
 
             lvOrders.DataSource = orders;
             lvOrders.DataBind();
@@ -59,7 +45,7 @@ namespace PL_Orderie
         {
             Order o = orders[e.NewSelectedIndex];
             o.UpdatePaid();
-            Response.Redirect("tableorders.aspx");
+            Response.Redirect("TableOrders.aspx");
         }
     }
 }

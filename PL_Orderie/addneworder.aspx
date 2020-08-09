@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addneworder.aspx.cs" Inherits="PL_Orderie.addneworder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddNewOrder.aspx.cs" Inherits="PL_Orderie.addneworder" %>
 
 <!DOCTYPE html>
 
@@ -11,11 +11,9 @@
 <body>
      <nav>
         <div>
-            <a href="#">back</a>
+            <span class="back" onclick="window.history.back();">ᐊ</span>
         </div>
-        <div>
-            logo
-        </div>
+        <img src="images/logo.png" />
     </nav>
     <form id="form1" runat="server">
         
@@ -24,7 +22,6 @@
         <label class="label">Select the table:</label>
 
         <asp:DropDownList ID="ddTables" runat="server" AutoPostBack="True" DataTextField="tableName" OnSelectedIndexChanged="dropDownSelect">
-            
         </asp:DropDownList>
 
         <label class="label">Products for this order:</label>
@@ -32,6 +29,7 @@
         <asp:ListView ID="GVProducts" runat="server" OnItemDeleting="deleteFromOrder">
         <ItemTemplate>
             <asp:Panel runat="server" CssClass="products marginLeft">
+                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imagePath") %>' />
                 <asp:Label ID="lblCat" CssClass="productCategory" runat="server" Text='<%# Eval("productCategory") %>' />
                 <asp:Label ID="lblNr" runat="server" Text='<%# Eval("productName") %>' />
                 <asp:Label ID="lblTable" CssClass="price" runat="server" Text='<%# Eval("price") %>' />

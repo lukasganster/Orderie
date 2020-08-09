@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addproducttoorder.aspx.cs" Inherits="PL_Orderie.addproducttoorder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddProductToOrder.aspx.cs" Inherits="PL_Orderie.addproducttoorder" %>
 
 <!DOCTYPE html>
 
@@ -11,11 +11,9 @@
 <body>
      <nav>
         <div>
-            <a href="#">back</a>
+            <span class="back" onclick="window.history.back();">ᐊ</span>
         </div>
-        <div>
-            logo
-        </div>
+        <img src="images/logo.png" />
     </nav>
     <form id="form1" runat="server">
         
@@ -23,6 +21,7 @@
         <asp:ListView ID="GVProductsAv" runat="server" SelectionMode="Single" OnSelectedIndexChanging="chooseFromProducts">
         <ItemTemplate>
             <asp:Panel runat="server" CssClass="products">
+                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imagePath") %>' />
                 <asp:Label ID="lblCat" CssClass="productCategory" runat="server" Text='<%# Eval("productCategory") %>' />
                 <asp:Label ID="lblNr" runat="server" Text='<%# Eval("productName") %>' />
                 <asp:Label ID="lblTable" CssClass="price" runat="server" Text='<%# Eval("price") %>' />

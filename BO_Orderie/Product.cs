@@ -14,6 +14,7 @@ namespace BO_Orderie
         private string m_productName;
         private float m_price;
         private string m_currency;
+        private string m_imagePath;
 
         public string productID {
             get {  return m_productID; }
@@ -35,10 +36,15 @@ namespace BO_Orderie
             get  {return m_currency;  }
             set  {m_currency = value;  } 
         }
+        
+        public string imagePath {
+            get  {return m_imagePath;  }
+            set  { m_imagePath = value;  } 
+        }
 
         public static Products LoadAll()
         {
-            SqlCommand cmd = new SqlCommand("select p.productID,p.productCategory,p.productName,p.price,p.currency from Products p order by p.productCategory,p.productName;", Main.GetConnection());
+            SqlCommand cmd = new SqlCommand("select p.productID,p.productCategory,p.productName,p.price,p.currency,p.imagePath from Products p order by p.productCategory,p.productName;", Main.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Products allRows = new Products();      //empty initialization list
             while (reader.Read())
@@ -57,6 +63,7 @@ namespace BO_Orderie
             singleProduct.productName = reader.GetString(2);
             singleProduct.price = (float) reader.GetDouble(3); // GetFloat ging hier nicht, deswegen explizites Casting von double in float
             singleProduct.currency = reader.GetString(4);
+            singleProduct.imagePath = reader.GetString(5);
 
             return singleProduct;
         }
@@ -79,7 +86,7 @@ namespace BO_Orderie
         //insert new product
         public bool SaveProduct()
         {
-            string sql = "insert into products (productID, productCategory, productName, price, currency) values (@p_id, @p_ct,@p_pd,@p_pr,@p_cr)";
+            string sql = "insert into products (productID, productCategory, productName, price, currency,imagePath) values (@p_id, @p_ct,@p_pd,@p_pr,@p_cr,@p_i)";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
             cmd.Connection = Main.GetConnection();
@@ -90,6 +97,10 @@ namespace BO_Orderie
             cmd.Parameters.Add(new SqlParameter("p_pd", this.m_productName));
             cmd.Parameters.Add(new SqlParameter("p_pr", this.m_price));
             cmd.Parameters.Add(new SqlParameter("p_cr", this.m_currency));
+            if(m_imagePath == null)
+                cmd.Parameters.Add(new SqlParameter("p_i", "images/default.png"));
+            else
+                cmd.Parameters.Add(new SqlParameter("p_i", this.m_imagePath));
 
             return (cmd.ExecuteNonQuery() > 0);
         }

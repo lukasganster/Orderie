@@ -17,21 +17,8 @@ namespace PL_Orderie
         private Products selectedProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
-
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
             if (!IsPostBack)
             {
@@ -41,22 +28,17 @@ namespace PL_Orderie
                 GVProductsAv.DataBind(); //dadurch wirds angezeigt
 
                 selectedProducts = (Products)Session["selectedProducts"];
-                if (selectedProducts == null)
-                {
-                    selectedProducts = new Products();
-                }
 
-                //Response.Write("<script>alert("+ selectedProducts[0].productName +")</script>");
+                if (selectedProducts == null) selectedProducts = new Products();
+
             }
             else
             {
                 products = (Products)Session["products"];
-                if (selectedProducts == null)
-                    selectedProducts = new Products();
+                if (selectedProducts == null) selectedProducts = new Products();
             }
 
             BO_Orderie.Table t = (BO_Orderie.Table)Session["selectedTable"];
-            // Response.Write("<script>alert('" + t.tableName + "')</script>");
         }
 
         protected void chooseFromProducts(object sender, ListViewSelectEventArgs e)
@@ -65,7 +47,7 @@ namespace PL_Orderie
             selectedProducts = (Products)Session["selectedProducts"];
             selectedProducts.Add(p);
             Session["selectedProducts"] = selectedProducts;
-            Response.Redirect("addneworder.aspx");
+            Response.Redirect("AddNeworder.aspx");
         }
     }
 }

@@ -24,13 +24,13 @@ namespace PL_Orderie
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// GVtables-Steuerelement
+        /// LVtables-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView GVtables;
+        protected global::System.Web.UI.WebControls.ListView LVtables;
 
         /// <summary>
         /// Label1-Steuerelement

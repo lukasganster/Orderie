@@ -67,86 +67,88 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="activeorders.aspx" />
-    <Content Include="addneworder.aspx" />
-    <Content Include="addproducttoorder.aspx" />
-    <Content Include="editproduct.aspx" />
+    <Content Include="ActiveOrders.aspx" />
+    <Content Include="AddNewOrder.aspx" />
+    <Content Include="AddProductToOrder.aspx" />
+    <Content Include="EditProduct.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="index.aspx" />
-    <Content Include="maintenance.aspx" />
-    <Content Include="overview.aspx" />
-    <Content Include="products.aspx" />
+    <Content Include="images\default.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="Maintenance.aspx" />
+    <Content Include="Overview.aspx" />
+    <Content Include="Products.aspx" />
     <Content Include="style.css" />
-    <Content Include="tableorders.aspx" />
+    <Content Include="TableOrders.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="activeorders.aspx.cs">
-      <DependentUpon>activeorders.aspx</DependentUpon>
+    <Compile Include="ActiveOrders.aspx.cs">
+      <DependentUpon>ActiveOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="activeorders.aspx.designer.cs">
-      <DependentUpon>activeorders.aspx</DependentUpon>
+    <Compile Include="ActiveOrders.aspx.designer.cs">
+      <DependentUpon>ActiveOrders.aspx</DependentUpon>
     </Compile>
-    <Compile Include="addneworder.aspx.cs">
-      <DependentUpon>addneworder.aspx</DependentUpon>
+    <Compile Include="AddNewOrder.aspx.cs">
+      <DependentUpon>AddNewOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="addneworder.aspx.designer.cs">
-      <DependentUpon>addneworder.aspx</DependentUpon>
+    <Compile Include="AddNewOrder.aspx.designer.cs">
+      <DependentUpon>AddNewOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="addproducttoorder.aspx.cs">
-      <DependentUpon>addproducttoorder.aspx</DependentUpon>
+    <Compile Include="AddProductToOrder.aspx.cs">
+      <DependentUpon>AddProductToOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="addproducttoorder.aspx.designer.cs">
-      <DependentUpon>addproducttoorder.aspx</DependentUpon>
+    <Compile Include="AddProductToOrder.aspx.designer.cs">
+      <DependentUpon>AddProductToOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="editproduct.aspx.cs">
-      <DependentUpon>editproduct.aspx</DependentUpon>
+    <Compile Include="EditProduct.aspx.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="editproduct.aspx.designer.cs">
-      <DependentUpon>editproduct.aspx</DependentUpon>
+    <Compile Include="EditProduct.aspx.designer.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="maintenance.aspx.cs">
-      <DependentUpon>maintenance.aspx</DependentUpon>
+    <Compile Include="Maintenance.aspx.cs">
+      <DependentUpon>Maintenance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="maintenance.aspx.designer.cs">
-      <DependentUpon>maintenance.aspx</DependentUpon>
+    <Compile Include="Maintenance.aspx.designer.cs">
+      <DependentUpon>Maintenance.aspx</DependentUpon>
     </Compile>
-    <Compile Include="overview.aspx.cs">
-      <DependentUpon>overview.aspx</DependentUpon>
+    <Compile Include="Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="overview.aspx.designer.cs">
-      <DependentUpon>overview.aspx</DependentUpon>
+    <Compile Include="Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="products.aspx.cs">
-      <DependentUpon>products.aspx</DependentUpon>
+    <Compile Include="Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="products.aspx.designer.cs">
-      <DependentUpon>products.aspx</DependentUpon>
+    <Compile Include="Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tableorders.aspx.cs">
-      <DependentUpon>tableorders.aspx</DependentUpon>
+    <Compile Include="TableOrders.aspx.cs">
+      <DependentUpon>TableOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="tableorders.aspx.designer.cs">
-      <DependentUpon>tableorders.aspx</DependentUpon>
+    <Compile Include="TableOrders.aspx.designer.cs">
+      <DependentUpon>TableOrders.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

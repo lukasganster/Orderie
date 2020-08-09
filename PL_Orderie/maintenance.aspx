@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="maintenance.aspx.cs" Inherits="PL_Orderie.maintenance" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Maintenance.aspx.cs" Inherits="PL_Orderie.maintenance" %>
 
 <!DOCTYPE html>
 
@@ -11,17 +11,18 @@
 <body>
      <nav>
         <div>
-            <a href="#">back</a>
+            <span class="back" onclick="window.history.back();">ᐊ</span>
         </div>
-        <div>
-            logo
-        </div>
+        <img src="images/logo.png" />
     </nav>
+    <h1>
+        Maintenance
+    </h1>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="buttonEditUsers" runat="server" Text="Users" />
-            <asp:Button ID="buttonEditTables" runat="server" Text="Tables" />
-            <asp:Button ID="buttonEditProducts" runat="server" Text="Products" OnClick="buttonEditProducts_Click" />
+            <asp:Button CssClass="button buttonFull" ID="buttonEditUsers" runat="server" Text="Users" />
+            <asp:Button CssClass="button buttonFull" ID="buttonEditTables" runat="server" Text="Tables" />
+            <asp:Button CssClass="button buttonFull" ID="buttonEditProducts" runat="server" Text="Products" OnClick="buttonEditProducts_Click" />
         </div>
     </form>
 </body>

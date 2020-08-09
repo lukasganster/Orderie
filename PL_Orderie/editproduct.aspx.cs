@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,27 +14,15 @@ namespace PL_Orderie
         BO_Orderie.Product product;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
+
             if (!IsPostBack)
             {
-
                 if (Session["selectedProduct"] == null)
                 {
                     product = new BO_Orderie.Product();
-                    label.Text = "new";
+                    id.Text = "At this point the product gets a unique ID";
                 }
                 else
                 {
@@ -47,7 +36,6 @@ namespace PL_Orderie
                     ddCurrencies.SelectedValue = product.currency;
                     ddCurrencies.DataTextField = product.currency;
                     ddCurrencies.DataValueField = product.currency;
-
                 }
             }
         }
@@ -55,7 +43,6 @@ namespace PL_Orderie
         protected void categorySelect(object sender, EventArgs e)
         {
             String s = ddCategories.SelectedValue;
-            
         }
 
         protected void ddCurrencies_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +62,7 @@ namespace PL_Orderie
                 product.price = f;
                 product.currency = ddCurrencies.SelectedValue;
                 product.SaveProduct();
+                id.Text = "At this point the product gets a unique ID";
             }
             else
             {
@@ -86,5 +74,25 @@ namespace PL_Orderie
                 product.UpdateProduct();
             }
         }
+
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            if (FileUploadControl.HasFile)
+            {
+                try
+                {
+                    string filename = Path.GetFileName(FileUploadControl.FileName);
+                    FileUploadControl.SaveAs(Server.MapPath("~/images/") + filename);
+                    StatusLabel.Text = "Upload status: File uploaded!";
+                    product.imagePath = "/images/" + filename;
+                }
+                catch (Exception ex)
+                {
+                    StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                }
+            }
+
+        }
+
     }
 }

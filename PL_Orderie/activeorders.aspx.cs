@@ -15,42 +15,25 @@ namespace PL_Orderie
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {                                                       //edit was kommt da rein?
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
 
             if (!IsPostBack)
             {
                 tables = BO_Orderie.Table.LoadAll(); //hier stecken alle Tables als einzelne Objekte drin!
                 Session["tables"] = tables; // die heb ich mir in der Session auf
-                GVtables.DataSource = tables;
-                GVtables.DataBind(); //dadurch wirds angezeigt
+                LVtables.DataSource = tables;
+                LVtables.DataBind(); //dadurch wirds angezeigt
             }
-            else
-            {
-                tables = (Tables)Session["tables"];
-            }
+            else tables = (Tables)Session["tables"];
         }
 
         protected void GVtables_SelectedIndexChanged(object sender, ListViewSelectEventArgs e)
         {
-            GVtables.SelectedIndex = e.NewSelectedIndex;
-            BO_Orderie.Table t = tables[e.NewSelectedIndex];
-            Label1.Text = t.tableName;
-            Session["table"] = t;
-            Response.Redirect("tableorders.aspx");
+            LVtables.SelectedIndex = e.NewSelectedIndex;  
+            Session["table"] = (BO_Orderie.Table)tables[e.NewSelectedIndex];
+            Response.Redirect("TableOrders.aspx");
         }
     }
 }

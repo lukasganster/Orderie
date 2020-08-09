@@ -23,15 +23,11 @@ namespace PL_Orderie
             {
                 labelHint.Text = "true";
                 Session["username"] = username;
-                Session["pwd"] = pwd;
+                Session["password"] = pwd;
                 Session["user"] = BO_Orderie.User.getUserByUsername(username);
-                Session["loggedIn"] = true;
-                Response.Redirect("overview.aspx");
+                Response.Redirect("Overview.aspx");
             }
-            else
-            {
-                labelHint.Text = "false " + BO_Orderie.Main.GetMD5Hash("test");
-            }
+            else labelHint.Text = "false " + BO_Orderie.Main.GetMD5Hash("test");
         }
     }
 }

@@ -11,12 +11,13 @@ namespace PL_Orderie
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
         }
 
         protected void buttonEditProducts_Click(object sender, EventArgs e)
         {
-            Response.Redirect("products.aspx");
+            Response.Redirect("Products.aspx");
         }
     }
 }

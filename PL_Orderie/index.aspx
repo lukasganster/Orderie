@@ -1,4 +1,4 @@
-﻿<%@ page language="C#" autoeventwireup="true" codebehind="index.aspx.cs" inherits="PL_Orderie.index" %>
+﻿<%@ page language="C#" autoeventwireup="true" codebehind="Index.aspx.cs" inherits="PL_Orderie.index" %>
 
 <!DOCTYPE html>
 
@@ -9,24 +9,22 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+     <nav>
+        <div>
+            <span class="back" onclick="window.history.back();">ᐊ</span>
+        </div>
+        <img src="images/logo.png" />
+    </nav>
     <form id="form1" runat="server">
-        <nav>
-            <div>
-                <a href="#">back</a>
-            </div>
-            <div>
-                logo
-            </div>
-        </nav>
         <asp:Label ID="label" runat="server" Text="Orderie Login"></asp:Label>
         <div>
-            <asp:Label ID="labelUsername" runat="server" Text="Username:"></asp:Label>
-            <asp:TextBox ID="textUsername" runat="server"></asp:TextBox>
+            <asp:Label CssClass="label" ID="labelUsername" runat="server" Text="Username:"></asp:Label>
+            <asp:TextBox CssClass="inputFull" ID="textUsername" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="labelPwd" runat="server" Text="Password:"></asp:Label>
-            <asp:TextBox ID="textPwd" runat="server"></asp:TextBox>
+            <asp:Label CssClass="label" ID="labelPwd" runat="server" Text="Password:"></asp:Label>
+            <asp:TextBox CssClass="inputFull" ID="textPwd" runat="server"></asp:TextBox>
             <br />
-            <asp:Button ID="buttonLogin" runat="server" Text="Login" OnClick="buttonLogin_Click" />
+            <asp:Button CssClass="button buttonFull" ID="buttonLogin" runat="server" Text="Login" OnClick="buttonLogin_Click" />
             <br />
             <asp:Label ID="labelHint" runat="server" Text="Label"></asp:Label>
         </div>

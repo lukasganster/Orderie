@@ -1,5 +1,5 @@
 ﻿
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tableorders.aspx.cs" Inherits="PL_Orderie.tableorders" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TableOrders.aspx.cs" Inherits="PL_Orderie.tableorders" %>
 
 <!DOCTYPE html>
 
@@ -12,11 +12,9 @@
 <body>
      <nav>
         <div>
-            <a href="#">back</a>
+            <span class="back" onclick="window.history.back();">ᐊ</span>
         </div>
-        <div>
-            logo
-        </div>
+        <img src="images/logo.png" />
     </nav>
     <form id="form1" runat="server">
         <h1>

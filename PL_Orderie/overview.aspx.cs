@@ -11,20 +11,8 @@ namespace PL_Orderie
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
         }
         protected void buttonNew_Click(object sender, EventArgs e)
         {

@@ -14,22 +14,8 @@ namespace PL_Orderie
         private Products selectedProducts;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String u = "";
-            String pw = "";
-            if (Session["username"] != null && Session["password"] != null)
-            {
-                u = Session["username"].ToString();
-                pw = Session["password"].ToString();
-            }
-            if (Session["loggedIn"] != null)
-            {
-            }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
-
-
+            // Guard clause for login purposes
+            if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
             if (!IsPostBack)
             {
@@ -37,19 +23,13 @@ namespace PL_Orderie
                 Session["tables"] = tables; // die heb ich mir in der Session auf
                 ddTables.DataSource = tables;
                 ddTables.DataBind();
-                //selectTable();
-
-
 
                 selectedProducts = (Products) Session["selectedProducts"];
-                if (selectedProducts == null)
-                {
-                    selectedProducts = new Products();
-                }
+                if (selectedProducts == null) selectedProducts = new Products();
 
                 BO_Orderie.Table t = (BO_Orderie.Table)Session["selectedTable"];
-                if(t != null)
-                    ddTables.SelectedValue = t.tableName;
+
+                if(t != null) ddTables.SelectedValue = t.tableName;
                 
 
                 GVProducts.DataSource = selectedProducts;
@@ -57,13 +37,11 @@ namespace PL_Orderie
 
                 Session["selectedProducts"] = selectedProducts;
 
-               // Response.Write("<script>alert('2here')</script>");    
             }
             else
             {
                 tables = (Tables)Session["tables"];
                 selectedProducts = (Products)Session["selectedProducts"];
-                
             }
         }
 
@@ -84,7 +62,6 @@ namespace PL_Orderie
         {
             BO_Orderie.Table t = tables[ddTables.SelectedIndex];
             Session["selectedTable"] = t;
-            // Response.Write("<script>alert('" + t.tableName + "')</script>");
             
         }
 
@@ -97,10 +74,9 @@ namespace PL_Orderie
                 paid = false,
                 products = (Products)Session["selectedProducts"],
                 user = u
-
             };
             o.SaveOrder();
-            Response.Redirect("activeorders.aspx");
+            Response.Redirect("ActiveOrders.aspx");
         }
 
         protected void deleteFromOrder(object sender, ListViewDeleteEventArgs e)
@@ -111,7 +87,6 @@ namespace PL_Orderie
             GVProducts.DataSource = selectedProducts;
             GVProducts.DataBind();
             Session["selectedProducts"] = selectedProducts;
-
         }
     }
 }
