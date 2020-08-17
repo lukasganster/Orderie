@@ -17,10 +17,10 @@ namespace PL_Orderie
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
-            if (!IsPostBack)
+            if (!IsPostBack)                    //when loading the page for the first time
             {
-                tables = BO_Orderie.Table.LoadAll(); //hier stecken alle Tables als einzelne Objekte drin!
-                Session["tables"] = tables; // die heb ich mir in der Session auf
+                tables = BO_Orderie.Table.LoadAll();
+                Session["tables"] = tables;
                 ddTables.DataSource = tables;
                 ddTables.DataBind();
 
@@ -31,39 +31,52 @@ namespace PL_Orderie
 
                 if(t != null) ddTables.SelectedValue = t.tableName;
                 
-
                 GVProducts.DataSource = selectedProducts;
                 GVProducts.DataBind();
 
                 Session["selectedProducts"] = selectedProducts;
 
             }
-            else
+            else                                //when order information already selected, but order not placed
             {
                 tables = (Tables)Session["tables"];
                 selectedProducts = (Products)Session["selectedProducts"];
             }
         }
 
+        /*
+         * Adding a new product redirects to select products page
+         */
+
         protected void addProduct_Click(object sender, EventArgs e)
         {
-           
             selectTable();
-            selectedProducts = (Products)Session["selectedProducts"];
+            selectedProducts = (Products)Session["selectedProducts"];           //edit, kannst du mir erklären warum selecttable() & sessionaufruf?
             Response.Redirect("addproducttoorder.aspx");
         }
+
+        /*
+         * 
+         */
 
         protected void dropDownSelect(object sender, EventArgs e)
         {
             selectTable();
         }
 
+        /*
+         * saving selected Table into session
+         */
+
         private void selectTable()
         {
             BO_Orderie.Table t = tables[ddTables.SelectedIndex];
             Session["selectedTable"] = t;
-            
         }
+
+        /*
+         * sending information for placing the order in the BO
+         */
 
         protected void finishOrder_Click(object sender, EventArgs e)
         {
@@ -76,8 +89,12 @@ namespace PL_Orderie
                 user = u
             };
             o.SaveOrder();
-            Response.Redirect("ActiveOrders.aspx");
+            Response.Redirect("ActiveOrders.aspx");     //after order is placed > redirection to active orders page
         }
+
+        /*
+         * deleting unwanted products from order
+         */
 
         protected void deleteFromOrder(object sender, ListViewDeleteEventArgs e)
         {

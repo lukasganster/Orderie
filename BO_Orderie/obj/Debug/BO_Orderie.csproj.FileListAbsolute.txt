@@ -4,3 +4,30 @@ C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.cspr
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
 C:\Users\Lukas Ganster\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\lisa-\source\repos\Orderie\BO_Orderie\bin\Debug\BO_Orderie.dll
+C:\Users\lisa-\source\repos\Orderie\BO_Orderie\bin\Debug\BO_Orderie.pdb
+C:\Users\lisa-\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\lisa-\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csproj.CoreCompileInputs.cache
+C:\Users\lisa-\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
+C:\Users\lisa-\source\repos\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
+C:\Users\lisa-\source\repos\Orderie4\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.dll
+C:\Users\lisa-\source\repos\Orderie4\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.pdb
+C:\Users\lisa-\source\repos\Orderie4\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\lisa-\source\repos\Orderie4\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
+C:\Users\lisa-\source\repos\Orderie4\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
+C:\Users\lisa-\source\repos\Orderie5\Orderie\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.dll
+C:\Users\lisa-\source\repos\Orderie5\Orderie\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.pdb
+C:\Users\lisa-\source\repos\Orderie5\Orderie\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\lisa-\source\repos\Orderie5\Orderie\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
+C:\Users\lisa-\source\repos\Orderie5\Orderie\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
+C:\Users\lisa-\SWE_Semesterprojekt\Orderie\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.dll
+C:\Users\lisa-\SWE_Semesterprojekt\Orderie\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.pdb
+C:\Users\lisa-\SWE_Semesterprojekt\Orderie\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\lisa-\SWE_Semesterprojekt\Orderie\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
+C:\Users\lisa-\SWE_Semesterprojekt\Orderie\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
+C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.dll
+C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\bin\Debug\BO_Orderie.pdb
+C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csproj.CoreCompileInputs.cache
+C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
+C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb

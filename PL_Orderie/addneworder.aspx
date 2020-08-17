@@ -39,7 +39,7 @@
         </ItemTemplate>
         </asp:ListView>
 
-        <asp:Button CssClass="button" runat="server" Text="Add product ➕" ID="addProduct" OnClick="addProduct_Click" />
+        <asp:Button CssClass="button primaryButton" runat="server" Text="Add product" ID="addProduct" OnClick="addProduct_Click" />
         <asp:Button CssClass="button" runat="server" Text="Finish order" ID="finishOrder" OnClick="finishOrder_Click" />
         
     </form>

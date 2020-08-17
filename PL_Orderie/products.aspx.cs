@@ -11,9 +11,10 @@ namespace PL_Orderie
     public partial class products : System.Web.UI.Page
     {
 
-        BO_Orderie.Products allProducts;
+        BO_Orderie.Products allProducts;                // edit also man lädt ein Object der Liste Products in die Variable allproducts oder? sorry nur dass ichs richtig kommentier
         protected void Page_Load(object sender, EventArgs e)
         {
+            // edit also check if manager
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 

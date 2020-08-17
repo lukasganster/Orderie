@@ -12,8 +12,14 @@ namespace PL_Orderie
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Unobtrusive Validation allows taking already-existing validation attributes and use them client-side 
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None; 
         }
+
+        /*
+         * login information gets sent to BO to check the username and corresponding encrypted password
+         */
+
         protected void buttonLogin_Click(object sender, EventArgs e)
         {
             String username = textUsername.Text.ToString();
@@ -27,7 +33,7 @@ namespace PL_Orderie
                 Session["user"] = BO_Orderie.User.getUserByUsername(username);
                 Response.Redirect("Overview.aspx");
             }
-            else labelHint.Text = "false " + BO_Orderie.Main.GetMD5Hash("test");
+            else labelHint.Text = "false, test:" + BO_Orderie.Main.GetMD5Hash("test")+"\n" + " gucci:" + BO_Orderie.Main.GetMD5Hash("gucci");
         }
     }
 }

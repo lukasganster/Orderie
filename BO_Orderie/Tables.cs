@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BO_Orderie
 {
+    /*
+     * class providing a List for saving the tables into
+     */
+
     public class Tables : List<Table>
     {
         

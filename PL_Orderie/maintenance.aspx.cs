@@ -19,5 +19,15 @@ namespace PL_Orderie
         {
             Response.Redirect("Products.aspx");
         }
+
+        protected void buttonEditTables_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OverviewTables.aspx");
+        }
+
+        protected void buttonEditUsers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OverviewUsers.aspx");
+        }
     }
 }

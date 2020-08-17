@@ -12,6 +12,7 @@ namespace PL_Orderie
 
     public partial class addproducttoorder : System.Web.UI.Page
     {
+        // edit comment ////
 
         private Products products;
         private Products selectedProducts;
@@ -40,6 +41,10 @@ namespace PL_Orderie
 
             BO_Orderie.Table t = (BO_Orderie.Table)Session["selectedTable"];
         }
+
+        /*
+         * 
+         */
 
         protected void chooseFromProducts(object sender, ListViewSelectEventArgs e)
         {

@@ -14,6 +14,11 @@ namespace PL_Orderie
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
         }
+
+        /*
+         * buttons for loading corresponding subpages
+         */
+
         protected void buttonNew_Click(object sender, EventArgs e)
         {
             Response.Redirect("neworder.aspx");
@@ -26,7 +31,6 @@ namespace PL_Orderie
         {
             Response.Redirect("addneworder.aspx");
         }
-
         protected void buttonMain_Click(object sender, EventArgs e)
         {
             Response.Redirect("maintenance.aspx");

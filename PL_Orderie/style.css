@@ -25,6 +25,7 @@ div#login{
     border-bottom: 3px lightgrey solid;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    box-sizing:border-box;
 }
 
 .productOrder {
@@ -38,10 +39,16 @@ select {
     text-align-last: center;
 }
 
-#addProduct {
+.primaryButton {
     background-color: lightgreen;
     color: black;
     border-color: #2d792d;
+}
+
+.primaryButton:hover {
+    background-color: #c4fcc4 !important;
+    color: black;
+    border-color: #9bc89b !important;
 }
 
 #finishOrder {
@@ -73,11 +80,36 @@ select {
     border-left: 1px solid lightgray;
 }
 
+.row {
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+    background-color: #c7c7c72e;
+    border-left: 1px solid lightgray;
+}
+
+.row-head{
+    background-color:black;
+    color:white;
+}
+
+.tables {
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+    background-color: #c7c7c72e;
+    border-left: 1px solid lightgray;
+}
+.users {
+    padding: 20px 30px;
+    border-bottom: 1px solid lightgray;
+    background-color: #c7c7c72e;
+    border-left: 1px solid lightgray;
+}
+
 .marginLeft {
     margin-left: 50px;
 }
 
-.products span {
+.products span , .row span{
     width: 19%;
     display: inline-block;
 }
@@ -246,7 +278,7 @@ nav img{
     border-bottom: 3px #006e63 solid;
 }
 
-.products img{
+.products img, .row img{
     width:4%;
 }
 
@@ -277,4 +309,19 @@ input[type=file]{
     padding: 30px 20px;
     background: black;
     color: white;
+}
+
+#password {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+#confirmPasswordTextBox {
+    margin-top:5px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.doubleRow{
+    width:calc(19% * 2) !important;
 }

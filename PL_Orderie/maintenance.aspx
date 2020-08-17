@@ -20,8 +20,8 @@
     </h1>
     <form id="form1" runat="server">
         <div>
-            <asp:Button CssClass="button buttonFull" ID="buttonEditUsers" runat="server" Text="Users" />
-            <asp:Button CssClass="button buttonFull" ID="buttonEditTables" runat="server" Text="Tables" />
+            <asp:Button CssClass="button buttonFull" ID="buttonEditUsers" runat="server" Text="Users" OnClick="buttonEditUsers_Click" />
+            <asp:Button CssClass="button buttonFull" ID="buttonEditTables" runat="server" Text="Tables" OnClick="buttonEditTables_Click" />
             <asp:Button CssClass="button buttonFull" ID="buttonEditProducts" runat="server" Text="Products" OnClick="buttonEditProducts_Click" />
         </div>
     </form>

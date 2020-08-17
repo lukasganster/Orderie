@@ -51,6 +51,15 @@ namespace PL_Orderie
         protected global::System.Web.UI.WebControls.TextBox textUsername;
 
         /// <summary>
+        /// RequiredFieldValidator1-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// labelPwd-Steuerelement
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace PL_Orderie
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textPwd;
+
+        /// <summary>
+        /// RequiredFieldValidator2-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// buttonLogin-Steuerelement

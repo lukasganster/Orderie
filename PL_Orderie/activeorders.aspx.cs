@@ -17,17 +17,23 @@ namespace PL_Orderie
         {
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
-
-
+            
             if (!IsPostBack)
             {
-                tables = BO_Orderie.Table.LoadAll(); //hier stecken alle Tables als einzelne Objekte drin!
-                Session["tables"] = tables; // die heb ich mir in der Session auf
+                tables = BO_Orderie.Table.LoadAll();        //tables contains all tables as singular objects
+                Session["tables"] = tables;                 //saving the tables in the session
                 LVtables.DataSource = tables;
-                LVtables.DataBind(); //dadurch wirds angezeigt
+                LVtables.DataBind();                        //binding the data to the corresponding placeholders > view
             }
             else tables = (Tables)Session["tables"];
         }
+
+        /*
+         * edit
+         * 
+         * displaying the table that corresponds to the selected index in the dropdown?
+         * sorry dass ich das noch immer nicht überreiß )':
+         */
 
         protected void GVtables_SelectedIndexChanged(object sender, ListViewSelectEventArgs e)
         {

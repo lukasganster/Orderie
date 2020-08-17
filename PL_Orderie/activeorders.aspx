@@ -19,10 +19,9 @@
         <asp:ListView ID="LVtables" runat="server" OnSelectedIndexChanging="GVtables_SelectedIndexChanged" SelectionMode="Single">
         <ItemTemplate>
             <asp:Panel runat="server" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "active table" : "inactive table" %>' CommandName="Select" >
-                <asp:Label ID="lblNr" runat="server" Text='<%# Eval("tableID") %>' />
-                <asp:Label ID="lblTable" runat="server" Text='<%# Eval("tableName") %>' />
-                <asp:Label ID="lblHasActiveOrdersActive" runat="server"  Text="Active" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "" : "hide" %>' />
-                <asp:Label ID="lblHasActiveOrdersEmpty" runat="server"  Text="Empty" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "hide" : "" %>' />
+                <asp:Label ID="lblTable" runat="server" CssClass="doubleRow" Text='<%# Eval("tableName") %>' />
+                <asp:Label ID="lblHasActiveOrdersActive" runat="server"  Text="Active" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "doubleRow" : "hide" %>' />
+                <asp:Label ID="lblHasActiveOrdersEmpty" runat="server"  Text="Empty" CssClass='<%# Eval("hasOrder").ToString() == "True" ? "hide" : "doubleRow" %>' />
                 <asp:LinkButton ID="buttonSelect" CssClass="buttonOrderie" CommandName="Select"  runat="server" Text='View Table' />
             </asp:Panel>
         </ItemTemplate>

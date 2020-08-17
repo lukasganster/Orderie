@@ -71,12 +71,16 @@
     <Content Include="AddNewOrder.aspx" />
     <Content Include="AddProductToOrder.aspx" />
     <Content Include="EditProduct.aspx" />
+    <Content Include="EditTable.aspx" />
+    <Content Include="EditUser.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\default.png" />
     <Content Include="images\logo.png" />
     <Content Include="Index.aspx" />
     <Content Include="Maintenance.aspx" />
     <Content Include="Overview.aspx" />
+    <Content Include="OverviewTables.aspx" />
+    <Content Include="OverviewUsers.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="style.css" />
     <Content Include="TableOrders.aspx" />
@@ -111,6 +115,20 @@
     <Compile Include="EditProduct.aspx.designer.cs">
       <DependentUpon>EditProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditTable.aspx.cs">
+      <DependentUpon>EditTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditTable.aspx.designer.cs">
+      <DependentUpon>EditTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,6 +152,20 @@
     </Compile>
     <Compile Include="Overview.aspx.designer.cs">
       <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OverviewTables.aspx.cs">
+      <DependentUpon>OverviewTables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OverviewTables.aspx.designer.cs">
+      <DependentUpon>OverviewTables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OverviewUsers.aspx.cs">
+      <DependentUpon>OverviewUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OverviewUsers.aspx.designer.cs">
+      <DependentUpon>OverviewUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>

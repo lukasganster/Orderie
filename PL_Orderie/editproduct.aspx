@@ -21,6 +21,8 @@
         <asp:Label CssClass="labelHint" runat="server" ID="id"></asp:Label>
         <br />
         <asp:Label CssClass="label" runat="server" Text="Product name"></asp:Label>
+        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" controltovalidate="name" errormessage="Please enter a name!" />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="name" ErrorMessage="Please enter only characters!" ValidationExpression="[a-zA-Z]+[ a-zA-Z-_]"></asp:RegularExpressionValidator>
         <asp:TextBox runat="server" ID="name" MinLength="3" ValidationMessage="not valid"></asp:TextBox>
         <br />
         <asp:Label CssClass="label" runat="server" Text="Product category"></asp:Label>
@@ -36,6 +38,8 @@
         <br />
         <asp:Label CssClass="label" runat="server" Text="Price"></asp:Label>
         <asp:TextBox runat="server" ID="price"></asp:TextBox>
+        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" controltovalidate="price" errormessage="Please enter a price!" />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="^\d{0,5}(\,\d{1,2})?$" runat="server" ControlToValidate="price" ErrorMessage="Please enter a correct product price! e.g. 2,30 EUR"></asp:RegularExpressionValidator>
         <br />
         <asp:Label CssClass="label" runat="server" Text="Currency"></asp:Label>
         <asp:DropDownList ID="ddCurrencies" runat="server" OnSelectedIndexChanged="ddCurrencies_SelectedIndexChanged">
@@ -47,10 +51,10 @@
 
 
         <asp:FileUpload id="FileUploadControl" runat="server" />
-        <asp:Button CssClass="fileSubmit" runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />
+        <asp:Button CssClass="fileSubmit" runat="server" id="UploadButton" text="Upload" OnClick="UploadButton_Click" />
         <br /><br />
         <asp:Label CssClass="labelHint" runat="server" id="StatusLabel" text="Upload status: not uploaded yet." />
-        <asp:Button CssClass="button" runat="server" Text="Save" ID="addProduct" OnClick="saveProduct" />
+        <asp:Button CssClass="button primaryButton" runat="server" Text="Save" ID="addProduct" OnClick="saveProduct" />
 
 
     </form>

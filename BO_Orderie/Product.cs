@@ -9,13 +9,15 @@ namespace BO_Orderie
 {
     public class Product
     {
-        private string m_productID;
-        private string m_productCategory;
-        private string m_productName;
-        private float m_price;
-        private string m_currency;
-        private string m_imagePath;
+        //internal variables
+        private string m_productID;             //ID of product
+        private string m_productCategory;       //product category: selection: already defined (hard coded) list in EditProduct PL
+        private string m_productName;           //name of product
+        private float m_price;                  //price of product (2 decimals)
+        private string m_currency;              //product currency: selection: already defined (hard coded) based on currency codes
+        private string m_imagePath;             //display-image path
 
+        //properties
         public string productID {
             get {  return m_productID; }
             internal set {  m_productID = value; }
@@ -42,6 +44,12 @@ namespace BO_Orderie
             set  { m_imagePath = value;  } 
         }
 
+        // METHODS **********************************************************************************************************
+
+        /*
+         * static method for loading all products
+         */
+
         public static Products LoadAll()
         {
             SqlCommand cmd = new SqlCommand("select p.productID,p.productCategory,p.productName,p.price,p.currency,p.imagePath from Products p order by p.productCategory,p.productName;", Main.GetConnection());
@@ -55,6 +63,10 @@ namespace BO_Orderie
             return allRows;
         }
 
+        /*
+         * 
+         */
+
         private static Product fillProductFromSQLDataReader(SqlDataReader reader)
         {
             Product singleProduct = new Product();
@@ -63,14 +75,18 @@ namespace BO_Orderie
             singleProduct.productName = reader.GetString(2);
             singleProduct.price = (float) reader.GetDouble(3); // GetFloat ging hier nicht, deswegen explizites Casting von double in float
             singleProduct.currency = reader.GetString(4);
-            singleProduct.imagePath = reader.GetString(5);
+            singleProduct.imagePath = reader.GetString(5);      //edit IndexOutOfRangeException wenn kein Bild
 
             return singleProduct;
         }
 
+        /*
+         * static method for loading products assigned to order
+         */
+
         internal static Products LoadProductsForOrder(Order o)
         {
-            SqlCommand cmd = new SqlCommand("select p.productID, p.productCategory, p.productName, p.price, p.currency from Orders o join ProductsToOrder po on o.orderID = po.orderID join Products p on po.productID = p.productID where o.orderID = @o_id", Main.GetConnection());
+            SqlCommand cmd = new SqlCommand("select p.productID, p.productCategory, p.productName, p.price, p.currency,p.imagePath from Orders o join ProductsToOrder po on o.orderID = po.orderID join Products p on po.productID = p.productID where o.orderID = @o_id", Main.GetConnection());
             cmd.Parameters.Add(new SqlParameter("o_id", o.orderID));
             SqlDataReader reader = cmd.ExecuteReader();
             Products allRows = new Products();      //empty initialization list
@@ -82,8 +98,10 @@ namespace BO_Orderie
             return allRows;
         }
 
+        /*
+         * inserting a new product into the database
+         */
 
-        //insert new product
         public bool SaveProduct()
         {
             string sql = "insert into products (productID, productCategory, productName, price, currency,imagePath) values (@p_id, @p_ct,@p_pd,@p_pr,@p_cr,@p_i)";

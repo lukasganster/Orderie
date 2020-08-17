@@ -14,6 +14,9 @@ namespace PL_Orderie
         BO_Orderie.Product product;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Unobtrusive Validation allows taking already-existing validation attributes and use them client-side 
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
 
@@ -39,11 +42,17 @@ namespace PL_Orderie
                 }
             }
         }
-
+        /*
+         * selecting category from dropdown 
+         */
         protected void categorySelect(object sender, EventArgs e)
         {
             String s = ddCategories.SelectedValue;
         }
+
+        /*
+         * selecting currency from dropdown
+         */
 
         protected void ddCurrencies_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -73,22 +82,40 @@ namespace PL_Orderie
                 product.currency = ddCurrencies.SelectedValue;
                 product.UpdateProduct();
             }
+            Response.Redirect("Products.aspx");
         }
+
+
+        /*
+         * edit !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         * es wirft mir da immer fehler, man kommt nicht in die methode
+         */
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {
+            Console.Write("uploading");
             if (FileUploadControl.HasFile)
             {
-                try
+                string extension = System.IO.Path.GetExtension(FileUploadControl.FileName);
+                if (extension == ".jpg" || extension == ".png")
                 {
-                    string filename = Path.GetFileName(FileUploadControl.FileName);
-                    FileUploadControl.SaveAs(Server.MapPath("~/images/") + filename);
-                    StatusLabel.Text = "Upload status: File uploaded!";
-                    product.imagePath = "/images/" + filename;
-                }
-                catch (Exception ex)
+                    Console.Write(extension);
+                    try
+                    {
+                        string filename = Path.GetFileName(FileUploadControl.FileName);
+                        FileUploadControl.SaveAs(Server.MapPath("~/images/") + filename);
+                        StatusLabel.Text = "Upload status: File uploaded!";
+                        product.imagePath = "/images/" + filename;
+                    }
+                    catch (Exception ex)
+                    {
+                        StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    }
+                } 
+                else
                 {
-                    StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    Console.Write("NOT JPG / PNG");
+                    StatusLabel.Text = "Only jpg and png allowed";
                 }
             }
 

@@ -17,6 +17,12 @@
     </nav>
     <h1>Select products</h1>
     <form id="form1" runat="server">
+        <div class="row row-head">
+            <span style="width:4%;""></span>
+            <span>Category</span>
+            <span>Name</span>
+            <span>Price</span>
+        </div>
         <asp:ListView ID="GVProducts" runat="server" OnSelectedIndexChanging="editProduct" OnItemDeleting="deleteProduct" OnSelectedIndexChanged="GVProducts_SelectedIndexChanged">
         <ItemTemplate>
             <asp:Panel runat="server" CssClass="products">
@@ -32,7 +38,7 @@
         </asp:ListView>
 
          
-        <asp:Button CssClass="button" runat="server" Text="Create new product" ID="addProduct" OnClick="addProduct_Click" />
+        <asp:Button CssClass="button primaryButton" runat="server" Text="Create new product" ID="addProduct" OnClick="addProduct_Click" />
     </form>
 </body>
 </html>

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BO_Orderie
 {
+    /*
+     * class providing a List for saving the products into
+     */
+
     public class Products : List<Product>
     {
     }

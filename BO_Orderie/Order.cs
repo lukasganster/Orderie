@@ -7,17 +7,28 @@ using System.Threading.Tasks;
 
 namespace BO_Orderie
 {
+    /*
+     *  class containing the getter and setter instance variables for the objects representing one specific order
+     *  
+     *  it contains following functionality:
+     *                                      saving orders
+     *                                      assigning products to that order
+     *                                      and updating the current status of the order
+     */
+
     public class Order
     {
-        private string m_orderID = "";
-        private string m_tableID;
-        private bool m_paid;
-        private int m_userID;
-        private DateTime m_timeOrdered;
-        private User m_user;
-        private Products m_products;
-        private Table m_table;
+        //internal variables
+        private string m_orderID = "";      //ID of order
+        private string m_tableID;           //ID of table that order belongs to
+        private bool m_paid;                //current payment status
+        private int m_userID;               //waiter/manager ID who places order
+        private DateTime m_timeOrdered;     //time order gets placed
+        private User m_user;                //the order is assigned to the user object that placed it
+        private Products m_products;        //the order has a products object (list) assigned to it
+        private Table m_table;              //the order is assigned to a table object
 
+        //properties
         public string orderID
         {
             get { return m_orderID;  }
@@ -63,18 +74,29 @@ namespace BO_Orderie
             set { m_timeOrdered = value; }
         }
 
+        // METHODS **********************************************************************************************************
+
+        /*
+         * derived property: calculated price of order
+         */
+
         public float priceSum
         {
             get {
                 float i = 0;
                 foreach(Product p in this.products)
                     {
-                    i += p.price;
+                    i += p.price;  //add all prices from the products assigned to this order
                     }
                 return i;
             }
         }
-        //save
+
+        /*
+         * saving NEW order into the database "Orders" table
+         * the objects aren't yet saved in the database: on placing the order they get inserted
+         */
+
         public bool SaveOrder()
         {
             string SQL = "insert into Orders (orderID, tableID, paid, userID,timeOrdered) values (@o_id, @o_tbID, @o_pd,@o_uID,CURRENT_TIMESTAMP)";
@@ -82,7 +104,7 @@ namespace BO_Orderie
             cmd.CommandText = SQL;
             cmd.Connection = Main.GetConnection();
 
-            m_orderID = Guid.NewGuid().ToString();                                         //new construct of GUID structure
+            m_orderID = Guid.NewGuid().ToString(); //new construct of GUID structure
             cmd.Parameters.Add(new SqlParameter("o_id", this.m_orderID));
             cmd.Parameters.Add(new SqlParameter("o_tbID", this.table.tableID));
             cmd.Parameters.Add(new SqlParameter("o_pd", this.m_paid));
@@ -93,12 +115,16 @@ namespace BO_Orderie
             {
                 if (this.SaveProductToOrder(p))
                 {
-                                                                                            //if true, insert all products belonging to order
+                 //if true, insert all products belonging to order
                 }
             }
 
             return (cmd.ExecuteNonQuery() > 0);
         }
+
+        /*
+         * inserting the products belonging to a specific orderID into the help table "ProductsToOrder"
+         */
 
         public bool SaveProductToOrder(Product p)
         {
@@ -112,6 +138,16 @@ namespace BO_Orderie
  
             return (cmd.ExecuteNonQuery() > 0);
         }
+
+        /*
+         * edit delete order
+         */
+
+
+        /*
+         * updating the current status of an already existing order,
+         * an order is paid when the "paid" field = 1 (field = 0: unpaid, field = NULL: no order placed)
+         */
 
         public bool UpdatePaid()
         {
