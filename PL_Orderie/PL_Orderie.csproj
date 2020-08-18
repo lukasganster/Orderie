@@ -81,7 +81,7 @@
     <Content Include="Overview.aspx" />
     <Content Include="OverviewTables.aspx" />
     <Content Include="OverviewUsers.aspx" />
-    <Content Include="Products.aspx" />
+    <Content Include="OverviewProducts.aspx" />
     <Content Include="style.css" />
     <Content Include="TableOrders.aspx" />
     <Content Include="Web.config" />
@@ -167,12 +167,12 @@
     <Compile Include="OverviewUsers.aspx.designer.cs">
       <DependentUpon>OverviewUsers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Products.aspx.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
+    <Compile Include="OverviewProducts.aspx.cs">
+      <DependentUpon>OverviewProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Products.aspx.designer.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
+    <Compile Include="OverviewProducts.aspx.designer.cs">
+      <DependentUpon>OverviewProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableOrders.aspx.cs">

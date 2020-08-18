@@ -18,6 +18,8 @@ namespace PL_Orderie
 
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
+            // Check if user is manager
+            if (Session["isManager"] == null) Response.Redirect("Overview.aspx");
 
             if (!IsPostBack)
             {

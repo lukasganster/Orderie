@@ -13,6 +13,8 @@ namespace PL_Orderie
         {
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
+
+            if (Session["isManager"] == null) buttonMain.CssClass += " disable";
         }
 
         /*

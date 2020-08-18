@@ -325,3 +325,10 @@ input[type=file]{
 .doubleRow{
     width:calc(19% * 2) !important;
 }
+
+.disable, .disable:hover{
+    background-color:lightgray;
+    color:darkgray;
+    cursor:not-allowed;
+    border-color:darkgrey;
+}

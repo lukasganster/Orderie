@@ -58,7 +58,7 @@ namespace BO_Orderie
          */
         public bool Save()
         {
-            string SQL = "insert into Users (userID, firstName, lastName, username, password, isManager) values (@u_id, @u_fn, @u_ln,@u_un,@u_pw,@u_isMan)";
+            string SQL = "insert into Users (userID, firstName, lastName, username, pwd, isManager) values (@u_id, @u_fn, @u_ln,@u_un,@u_pw,@u_isMan)";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
             cmd.Connection = Main.GetConnection();

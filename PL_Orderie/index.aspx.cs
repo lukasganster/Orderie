@@ -30,7 +30,9 @@ namespace PL_Orderie
                 labelHint.Text = "true";
                 Session["username"] = username;
                 Session["password"] = pwd;
-                Session["user"] = BO_Orderie.User.getUserByUsername(username);
+                BO_Orderie.User user = BO_Orderie.User.getUserByUsername(username);
+                Session["user"] = user;
+                if (user.isManager) Session["isManager"] = true;
                 Response.Redirect("Overview.aspx");
             }
             else labelHint.Text = "false, test:" + BO_Orderie.Main.GetMD5Hash("test")+"\n" + " gucci:" + BO_Orderie.Main.GetMD5Hash("gucci");
