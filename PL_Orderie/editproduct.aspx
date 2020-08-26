@@ -49,11 +49,12 @@
         </asp:DropDownList>
         <br />
 
-
+        <asp:Image ID="image" runat="server" CssClass="imageProduct" ImageUrl="~/images/default.png" />
         <asp:FileUpload id="FileUploadControl" runat="server" />
         <asp:Button CssClass="fileSubmit" runat="server" id="UploadButton" text="Upload" OnClick="UploadButton_Click" />
         <br /><br />
         <asp:Label CssClass="labelHint" runat="server" id="StatusLabel" text="Upload status: not uploaded yet." />
+
         <asp:Button CssClass="button primaryButton" runat="server" Text="Save" ID="addProduct" OnClick="saveProduct" />
 
 

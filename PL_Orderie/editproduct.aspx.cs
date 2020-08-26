@@ -41,6 +41,11 @@ namespace PL_Orderie
                     ddCurrencies.SelectedValue = product.currency;
                     ddCurrencies.DataTextField = product.currency;
                     ddCurrencies.DataValueField = product.currency;
+                    //FileUploadControl.FileName = product.imagePath;
+                    if (product.imagePath.Contains("default")) StatusLabel.Text = "No image";
+                    else StatusLabel.Text = "Current image: " + product.imagePath.Substring(7);
+                    image.ImageUrl = product.imagePath;
+                    
                 }
             }
         }
@@ -72,7 +77,10 @@ namespace PL_Orderie
                 float f = float.Parse(price.Text);
                 product.price = f;
                 product.currency = ddCurrencies.SelectedValue;
+                if (Session["uploadedImage"] != null)
+                    product.imagePath = Session["uploadedImage"].ToString();
                 product.SaveProduct();
+                Session["uploadedImage"] = null;
                 id.Text = "At this point the product gets a unique ID";
             }
             else
@@ -84,7 +92,7 @@ namespace PL_Orderie
                 product.currency = ddCurrencies.SelectedValue;
                 product.UpdateProduct();
             }
-            Response.Redirect("Products.aspx");
+            Response.Redirect("OverviewProducts.aspx");
         }
 
 
@@ -95,32 +103,31 @@ namespace PL_Orderie
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {
-            Console.Write("uploading");
             if (FileUploadControl.HasFile)
             {
-                string extension = System.IO.Path.GetExtension(FileUploadControl.FileName);
-                if (extension == ".jpg" || extension == ".png")
+                try
                 {
-                    Console.Write(extension);
-                    try
+                    string filename = Path.GetFileName(FileUploadControl.FileName);
+                    FileUploadControl.SaveAs(Server.MapPath("~/images/") + filename);
+                    
+                    string extension = System.IO.Path.GetExtension(FileUploadControl.FileName);
+                    if(extension == ".jpg" || extension == ".png")
                     {
-                        string filename = Path.GetFileName(FileUploadControl.FileName);
-                        FileUploadControl.SaveAs(Server.MapPath("~/images/") + filename);
+                        Session["uploadedImage"] = "images/" + filename;
                         StatusLabel.Text = "Upload status: File uploaded!";
-                        product.imagePath = "/images/" + filename;
+                        image.ImageUrl = "images/" + filename;
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                        StatusLabel.Text = "Only jpg and png allowed";
                     }
-                } 
-                else
+
+                }
+                catch (Exception ex)
                 {
-                    Console.Write("NOT JPG / PNG");
-                    StatusLabel.Text = "Only jpg and png allowed";
+                    StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
                 }
             }
-
         }
 
     }

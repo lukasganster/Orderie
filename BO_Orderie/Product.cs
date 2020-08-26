@@ -52,7 +52,7 @@ namespace BO_Orderie
 
         public static Products LoadAll()
         {
-            SqlCommand cmd = new SqlCommand("select p.productID,p.productCategory,p.productName,p.price,p.currency,p.imagePath from Products p order by p.productCategory,p.productName;", Main.GetConnection());
+            SqlCommand cmd = new SqlCommand("select p.productID,p.productCategory,p.productName,p.price,p.currency,p.imagePath from Products p where active = 1 order by p.productCategory,p.productName;", Main.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Products allRows = new Products();      //empty initialization list
             while (reader.Read())
@@ -115,10 +115,10 @@ namespace BO_Orderie
             cmd.Parameters.Add(new SqlParameter("p_pd", this.m_productName));
             cmd.Parameters.Add(new SqlParameter("p_pr", this.m_price));
             cmd.Parameters.Add(new SqlParameter("p_cr", this.m_currency));
-            if(m_imagePath == null)
+            if(this.imagePath == null)
                 cmd.Parameters.Add(new SqlParameter("p_i", "images/default.png"));
             else
-                cmd.Parameters.Add(new SqlParameter("p_i", this.m_imagePath));
+                cmd.Parameters.Add(new SqlParameter("p_i", this.imagePath));
 
             return (cmd.ExecuteNonQuery() > 0);
         }
@@ -142,7 +142,8 @@ namespace BO_Orderie
         //delete product
         public bool DeleteProduct()
         {
-            string SQL = "delete from Products where productID = @p_id";
+            //string SQL = "delete from Products where productID = @p_id";
+            string SQL = "update Products set active = 0 where productID = @p_id";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
             cmd.Connection = Main.GetConnection();

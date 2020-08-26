@@ -332,3 +332,15 @@ input[type=file]{
     cursor:not-allowed;
     border-color:darkgrey;
 }
+
+.imageProduct{
+    display:block;
+    width:20%;
+    margin: 0 auto;
+}
+
+@media (min-width:600px){
+    .products span, .row span{
+        width: 17% !important;
+    }
+}

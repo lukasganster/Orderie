@@ -10,6 +10,7 @@ namespace PL_Orderie
     public partial class OverviewTables : System.Web.UI.Page
     {
         private BO_Orderie.Tables allTables;        //one instance of all table objects saved in list
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Guard clause for login purposes
