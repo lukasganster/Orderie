@@ -5,16 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Active Orders</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
      <nav>
         <div>
-            <span class="back" onclick="window.history.back();">ᐊ</span>
+            <span class="back" onclick="window.location.href = 'Overview.aspx'">ᐊ</span>
         </div>
         <img src="images/logo.png" />
     </nav>
+    <h1>
+        Active Orders
+    </h1>
     <form id="form1" runat="server">
         <asp:ListView ID="LVtables" runat="server" OnSelectedIndexChanging="GVtables_SelectedIndexChanged" SelectionMode="Single">
         <ItemTemplate>

@@ -177,15 +177,6 @@ namespace PL_Orderie
         protected global::System.Web.UI.WebControls.CompareValidator comparePasswords;
 
         /// <summary>
-        /// labelPassword-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelPassword;
-
-        /// <summary>
         /// addProduct-Steuerelement
         /// </summary>
         /// <remarks>

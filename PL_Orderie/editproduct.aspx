@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
      <nav>
         <div>
-            <span class="back" onclick="window.history.back();">ᐊ</span>
+            <span class="back" onclick="window.location.href = 'OverviewProducts.aspx'">ᐊ</span>
         </div>
         <img src="images/logo.png" />
     </nav>
@@ -22,7 +22,6 @@
         <br />
         <asp:Label CssClass="label" runat="server" Text="Product name"></asp:Label>
         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" controltovalidate="name" errormessage="Please enter a name!" />
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="name" ErrorMessage="Please enter only characters!" ValidationExpression="[a-zA-Z]+[ a-zA-Z-_]"></asp:RegularExpressionValidator>
         <asp:TextBox runat="server" ID="name" MinLength="3" ValidationMessage="not valid"></asp:TextBox>
         <br />
         <asp:Label CssClass="label" runat="server" Text="Product category"></asp:Label>

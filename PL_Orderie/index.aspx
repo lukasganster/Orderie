@@ -17,19 +17,21 @@
         <img src="images/logo.png" />
     </nav>
     <form id="form1" runat="server">
-        <asp:Label ID="label" runat="server" Text="Orderie Login"></asp:Label>
+            <h1>
+        Login
+    </h1>
         <div>
             <asp:Label CssClass="label" ID="labelUsername" runat="server" Text="Username:"></asp:Label>
             <asp:TextBox CssClass="inputFull" ID="textUsername" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" controltovalidate="textUsername" errormessage="Please enter your name!" />
             <br />
             <asp:Label CssClass="label" ID="labelPwd" runat="server" Text="Password:"></asp:Label>
-            <asp:TextBox CssClass="inputFull" ID="textPwd" runat="server"></asp:TextBox>
+            <asp:TextBox CssClass="inputFull" ID="textPwd" runat="server" TextMode="Password" ></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" controltovalidate="textPwd" errormessage="Please enter your password!" />
             <br />
+            <asp:Label ID="labelHint" CssClass="labelHint" runat="server" Text=""></asp:Label>
             <asp:Button CssClass="button buttonFull" ID="buttonLogin" runat="server" Text="Login" OnClick="buttonLogin_Click" />
-            <br />
-            <asp:Label ID="labelHint" runat="server" Text="Label"></asp:Label>
+
         </div>
 
 

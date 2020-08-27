@@ -5,20 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Overview Products</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
      <nav>
         <div>
-            <span class="back" onclick="window.history.back();">ᐊ</span>
+            <span class="back" onclick="window.location.href = 'Maintenance.aspx'">ᐊ</span>
         </div>
         <img src="images/logo.png" />
     </nav>
     <h1>Select products</h1>
     <form id="form1" runat="server">
         <div class="row row-head">
-            <span style="width:4%;""></span>
+            <span style="width:4% !important;""></span>
             <span>Category</span>
             <span>Name</span>
             <span>Price</span>

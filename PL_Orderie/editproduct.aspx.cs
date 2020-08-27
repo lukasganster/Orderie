@@ -90,7 +90,10 @@ namespace PL_Orderie
                 float f = float.Parse(price.Text);
                 product.price = f;
                 product.currency = ddCurrencies.SelectedValue;
+                if (Session["uploadedImage"] != null)
+                    product.imagePath = Session["uploadedImage"].ToString();
                 product.UpdateProduct();
+                Session["uploadedImage"] = null;
             }
             Response.Redirect("OverviewProducts.aspx");
         }
@@ -109,7 +112,6 @@ namespace PL_Orderie
                 {
                     string filename = Path.GetFileName(FileUploadControl.FileName);
                     FileUploadControl.SaveAs(Server.MapPath("~/images/") + filename);
-                    
                     string extension = System.IO.Path.GetExtension(FileUploadControl.FileName);
                     if(extension == ".jpg" || extension == ".png")
                     {
@@ -119,7 +121,7 @@ namespace PL_Orderie
                     }
                     else
                     {
-                        StatusLabel.Text = "Only jpg and png allowed";
+                        StatusLabel.Text = "Only jpg and png allowed.";
                     }
 
                 }

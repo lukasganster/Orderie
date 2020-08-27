@@ -89,6 +89,7 @@ namespace PL_Orderie
                 user = u
             };
             o.SaveOrder();
+            Session["selectedProducts"] = null;
             Response.Redirect("ActiveOrders.aspx");     //after order is placed > redirection to active orders page
         }
 

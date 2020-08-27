@@ -14,6 +14,7 @@ namespace PL_Orderie
         {
             //Unobtrusive Validation allows taking already-existing validation attributes and use them client-side 
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None; 
+            labelHint.Style.Add("display", "none");
         }
 
         /*
@@ -35,7 +36,11 @@ namespace PL_Orderie
                 if (user.isManager) Session["isManager"] = true;
                 Response.Redirect("Overview.aspx");
             }
-            else labelHint.Text = "false, test:" + BO_Orderie.Main.GetMD5Hash("test")+"\n" + " gucci:" + BO_Orderie.Main.GetMD5Hash("gucci");
+            else
+            {
+                labelHint.Text = "False user/password combination";
+                labelHint.Style.Add("display", "block");
+            }
         }
     }
 }

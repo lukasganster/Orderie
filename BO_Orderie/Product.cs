@@ -125,7 +125,7 @@ namespace BO_Orderie
 
         public bool UpdateProduct()
         {
-            string sql = "update Products set productCategory = @p_ct, productName = @p_pd, price = @p_pr, currency = @p_cr where productID = @p_id";
+            string sql = "update Products set productCategory = @p_ct, productName = @p_pd, price = @p_pr, currency = @p_cr, imagePath = @p_im where productID = @p_id";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
             cmd.Connection = Main.GetConnection();
@@ -135,6 +135,7 @@ namespace BO_Orderie
             cmd.Parameters.Add(new SqlParameter("p_pd", this.m_productName));
             cmd.Parameters.Add(new SqlParameter("p_pr", this.m_price));
             cmd.Parameters.Add(new SqlParameter("p_cr", this.m_currency));
+            cmd.Parameters.Add(new SqlParameter("p_im", this.m_imagePath));
 
             return (cmd.ExecuteNonQuery() > 0);
         }

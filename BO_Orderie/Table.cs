@@ -39,14 +39,8 @@ namespace BO_Orderie
         //Delete
 
         /*
-         * static method for loading all tables
-         * 
-         * edit ist das das wo wir nur die nichtbezahlten raussuchen? 
+         * static method for loading each individual table corresponding to their order status
          */
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-            // edit check : returns all tables? or just specific ones? 
 
         public static Tables LoadAll()
         {

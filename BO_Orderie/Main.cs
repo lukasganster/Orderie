@@ -21,7 +21,7 @@ namespace BO_Orderie
 
 
 
-       edit Zweck der Klasse angeben 
+       the Main class is responsible for processing general tasks such as the database connection and login functionality
      */
 
     public class Main

@@ -37,5 +37,14 @@ namespace PL_Orderie
         {
             Response.Redirect("maintenance.aspx");
         }
+
+        protected void buttonLoggout_Click(object sender, EventArgs e)
+        {
+            Session["user"] = null;
+            Session["username"] = null;
+            Session["password"] = null;
+            Session["isManager"] = null;
+            Response.Redirect("Index.aspx");
+        }
     }
 }

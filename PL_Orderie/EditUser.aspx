@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Edit User</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
      <nav>
         <div>
-            <span class="back" onclick="window.history.back();">ᐊ</span>
+            <span class="back" onclick="window.location.href = 'OverviewUsers.aspx'">ᐊ</span>
         </div>
         <img src="images/logo.png" />
     </nav>
@@ -68,7 +68,6 @@
               Display="Dynamic" />
 
         <br />
-        <asp:Label ID="labelPassword" runat="server" Text="Label"></asp:Label>
         <asp:Button CssClass="button primaryButton" runat="server" Text="Save" ID="addProduct" OnClick="saveUser" />
 
 

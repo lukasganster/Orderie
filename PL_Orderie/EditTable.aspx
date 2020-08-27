@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Edit Table</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
      <nav>
         <div>
-            <span class="back" onclick="window.history.back();">ᐊ</span>
+            <span class="back" onclick="window.location.href = 'OverviewTables.aspx'">ᐊ</span>
         </div>
         <img src="images/logo.png" />
     </nav>
