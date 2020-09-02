@@ -12,10 +12,9 @@ namespace PL_Orderie
 
     public partial class addproducttoorder : System.Web.UI.Page
     {
-        // edit comment ////
 
-        private Products products;
-        private Products selectedProducts;
+        private Products products; // all products
+        private Products selectedProducts; // products i selected for the order
         protected void Page_Load(object sender, EventArgs e)
         {
             // Guard clause for login purposes

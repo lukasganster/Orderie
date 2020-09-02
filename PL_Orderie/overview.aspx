@@ -22,7 +22,7 @@
         <div>
         </div>
         <asp:Button CssClass="button buttonFull" ID="buttonNew" runat="server" Text="New Order" OnClick="buttonNew_Click1" />
-        <asp:Button CssClass="button buttonFull" ID="buttonActive" runat="server" Text="Active Order" OnClick="buttonActive_Click" />
+        <asp:Button CssClass="button buttonFull" ID="buttonActive" runat="server" Text="Active Orders" OnClick="buttonActive_Click" />
         <asp:Button CssClass="button buttonFull" ID="buttonMain" runat="server" Text="Maintenance" OnClick="buttonMain_Click"/>
         <asp:Button CssClass="button buttonFull" ID="buttonLoggout" runat="server" Text="Loggout" OnClick="buttonLoggout_Click" />
     </form>

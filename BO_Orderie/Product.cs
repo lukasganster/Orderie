@@ -13,7 +13,7 @@ namespace BO_Orderie
         private string m_productID;             //ID of product
         private string m_productCategory;       //product category: selection: already defined (hard coded) list in EditProduct PL
         private string m_productName;           //name of product
-        private float m_price;                  //price of product (2 decimals)
+        private float m_price;                  //price of product (in decimals)
         private string m_currency;              //product currency: selection: already defined (hard coded) based on currency codes
         private string m_imagePath;             //display-image path
 
@@ -47,41 +47,28 @@ namespace BO_Orderie
         // METHODS **********************************************************************************************************
 
         /*
-         * static method for loading all products
+         * READ: static method for loading and returning all products that are active (not taken out of assortment)
+         * (inactive products that were active during time of older order are excluded for new order)
+         * the data gets retrieved with SQL Data Reader
+         * returns "allRows" which holds all active products
          */
 
         public static Products LoadAll()
         {
             SqlCommand cmd = new SqlCommand("select p.productID,p.productCategory,p.productName,p.price,p.currency,p.imagePath from Products p where active = 1 order by p.productCategory,p.productName;", Main.GetConnection());
-            SqlDataReader reader = cmd.ExecuteReader();
-            Products allRows = new Products();      //empty initialization list
-            while (reader.Read())
+            SqlDataReader reader = cmd.ExecuteReader(); //reads the rows from database command
+            Products allRows = new Products();          //empty initialization list for saving what the reader returns
+            while (reader.Read())                       //call reader > access data
             {
                 Product singleProduct = fillProductFromSQLDataReader(reader);
-                allRows.Add(singleProduct);
+                allRows.Add(singleProduct);             //save the singleProduct object that SQL Reader returns
             }
             return allRows;
         }
 
         /*
-         * 
-         */
-
-        private static Product fillProductFromSQLDataReader(SqlDataReader reader)
-        {
-            Product singleProduct = new Product();
-            singleProduct.productID = reader.GetString(0);
-            singleProduct.productCategory = reader.GetString(1);
-            singleProduct.productName = reader.GetString(2);
-            singleProduct.price = (float) reader.GetDouble(3); // GetFloat ging hier nicht, deswegen explizites Casting von double in float
-            singleProduct.currency = reader.GetString(4);
-            singleProduct.imagePath = reader.GetString(5);      //edit IndexOutOfRangeException wenn kein Bild
-
-            return singleProduct;
-        }
-
-        /*
-         * static method for loading products assigned to order
+         * READ: static method for loading products assigned to order via join with help table ProductsToOrder
+         * returns allRows after filled with the singular Objects (variables filled with DataReader)
          */
 
         internal static Products LoadProductsForOrder(Order o)
@@ -97,9 +84,21 @@ namespace BO_Orderie
             }
             return allRows;
         }
+        private static Product fillProductFromSQLDataReader(SqlDataReader reader)
+        {
+            Product singleProduct = new Product();
+            singleProduct.productID = reader.GetString(0);
+            singleProduct.productCategory = reader.GetString(1);
+            singleProduct.productName = reader.GetString(2);
+            singleProduct.price = (float) reader.GetDouble(3); // explicit casting from double in float was necessary (GetFloat not working)
+            singleProduct.currency = reader.GetString(4);
+            singleProduct.imagePath = reader.GetString(5);
+
+            return singleProduct;
+        }
 
         /*
-         * inserting a new product into the database
+         * CREATE: inserting a new product into the database
          */
 
         public bool SaveProduct()
@@ -123,6 +122,10 @@ namespace BO_Orderie
             return (cmd.ExecuteNonQuery() > 0);
         }
 
+        /*
+         * UPDATE: change product properties for Maintenance
+         */
+
         public bool UpdateProduct()
         {
             string sql = "update Products set productCategory = @p_ct, productName = @p_pd, price = @p_pr, currency = @p_cr, imagePath = @p_im where productID = @p_id";
@@ -140,7 +143,11 @@ namespace BO_Orderie
             return (cmd.ExecuteNonQuery() > 0);
         }
 
-        //delete product
+        /*
+         * "DELETE" > actually UPDATE
+         * doesn't actually get deleted for avoidance of errors, since products can still be used in orders
+         */
+
         public bool DeleteProduct()
         {
             //string SQL = "delete from Products where productID = @p_id";

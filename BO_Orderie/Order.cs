@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SqlClient;                //SQL Data Reference
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +11,7 @@ namespace BO_Orderie
      *  class containing the getter and setter instance variables for the objects representing one specific order
      *  
      *  it contains following functionality:
+     *                                      calculate overall cost
      *                                      saving orders
      *                                      assigning products to that order
      *                                      and updating the current status of the order
@@ -32,7 +33,7 @@ namespace BO_Orderie
         public string orderID
         {
             get { return m_orderID;  }
-            internal set { m_orderID = value;  }
+            internal set { m_orderID = value;  } //other classes in BO can access, PL can't
         }
         public string tableID
         {
@@ -84,16 +85,16 @@ namespace BO_Orderie
         {
             get {
                 float i = 0;
-                foreach(Product p in this.products)
+                foreach(Product p in this.products) //for each item in products list connected to this order
                     {
-                    i += p.price;  //add all prices from the products assigned to this order
+                    i += p.price;                   //add all prices from the products assigned to this order
                     }
                 return i;
             }
         }
 
         /*
-         * saving NEW order into the database "Orders" table
+         * CREATE: saving NEW order into the database "Orders" table
          * the objects aren't yet saved in the database: on placing the order they get inserted
          */
 
@@ -115,7 +116,7 @@ namespace BO_Orderie
             {
                 if (this.SaveProductToOrder(p))
                 {
-                 //if true, insert all products belonging to order
+                 //if true, insert all products belonging to order via help table
                 }
             }
 
@@ -123,7 +124,7 @@ namespace BO_Orderie
         }
 
         /*
-         * inserting the products belonging to a specific orderID into the help table "ProductsToOrder"
+         * inserting the product Object belonging to a specific orderID into the help table "ProductsToOrder"
          */
 
         public bool SaveProductToOrder(Product p)
@@ -140,12 +141,7 @@ namespace BO_Orderie
         }
 
         /*
-         * edit delete order
-         */
-
-
-        /*
-         * updating the current status of an already existing order,
+         * UPDATE: updating the current status of an already existing order,
          * an order is paid when the "paid" field = 1 (field = 0: unpaid, field = NULL: no order placed)
          */
 

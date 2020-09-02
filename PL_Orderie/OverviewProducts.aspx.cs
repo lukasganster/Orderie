@@ -11,10 +11,9 @@ namespace PL_Orderie
     public partial class products : System.Web.UI.Page
     {
 
-        BO_Orderie.Products allProducts;                // edit also man lädt ein Object der Liste Products in die Variable allproducts oder? sorry nur dass ichs richtig kommentier
+        BO_Orderie.Products allProducts; //saves all products as variable
         protected void Page_Load(object sender, EventArgs e)
         {
-            // edit also check if manager
             // Guard clause for login purposes
             if (Session["username"] == null || Session["password"] == null) Response.Redirect("Index.aspx");
             // Check if user is manager
@@ -46,8 +45,8 @@ namespace PL_Orderie
         {
             allProducts = BO_Orderie.Product.LoadAll();
             Product product = allProducts[e.ItemIndex];
-            product.DeleteProduct();
-            allProducts.Remove(product);
+            product.DeleteProduct(); // Sets product inactive in db instead of deleting. To keep it for existing orders
+            allProducts.Remove(product); // Removes product in view
             GVProducts.DataSource = allProducts;
             GVProducts.DataBind();
         }

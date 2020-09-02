@@ -31,3 +31,9 @@ C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.c
 C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.csproj.CoreCompileInputs.cache
 C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.dll
 C:\Users\Lukas Ganster\Desktop\Orderie\Orderie\BO_Orderie\obj\Debug\BO_Orderie.pdb
+C:\Users\lisa-\Documents\Orderie-master (1)\Orderie-master\BO_Orderie\bin\Debug\BO_Orderie.dll
+C:\Users\lisa-\Documents\Orderie-master (1)\Orderie-master\BO_Orderie\bin\Debug\BO_Orderie.pdb
+C:\Users\lisa-\Documents\Orderie-master (1)\Orderie-master\BO_Orderie\obj\Debug\BO_Orderie.csprojAssemblyReference.cache
+C:\Users\lisa-\Documents\Orderie-master (1)\Orderie-master\BO_Orderie\obj\Debug\BO_Orderie.csproj.CoreCompileInputs.cache
+C:\Users\lisa-\Documents\Orderie-master (1)\Orderie-master\BO_Orderie\obj\Debug\BO_Orderie.dll
+C:\Users\lisa-\Documents\Orderie-master (1)\Orderie-master\BO_Orderie\obj\Debug\BO_Orderie.pdb

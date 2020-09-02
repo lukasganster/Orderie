@@ -12,7 +12,7 @@
 <body>
      <nav>
         <div>
-            <span class="back" onclick="window.history.back();">ᐊ</span>
+            
         </div>
         <img src="images/logo.png" />
     </nav>

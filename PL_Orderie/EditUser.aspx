@@ -21,7 +21,7 @@
         <asp:Label CssClass="labelHint" runat="server" ID="id"></asp:Label>
         <br />
         <asp:Label CssClass="label" runat="server" Text="Username"></asp:Label>
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" controltovalidate="username" errormessage="Please enter a name!" />
+        <asp:RequiredFieldValidator runat="server" runat="server" ID="RequiredFieldValidator1" controltovalidate="username" errormessage="Please enter a name!" />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="username" ErrorMessage="Please enter only characters!" ValidationExpression="[a-zA-Z]+[ a-zA-Z-_]"></asp:RegularExpressionValidator>
         <asp:TextBox runat="server" ID="username" MinLength="3" ValidationMessage="not valid"></asp:TextBox>
         <br />
@@ -69,7 +69,6 @@
 
         <br />
         <asp:Button CssClass="button primaryButton" runat="server" Text="Save" ID="addProduct" OnClick="saveUser" />
-
 
     </form>
 </body>

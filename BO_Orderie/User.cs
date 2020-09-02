@@ -54,7 +54,7 @@ namespace BO_Orderie
         // METHODS **********************************************************************************************************
 
         /*
-         * inserting a new user into the database
+         * CREATE: inserting a new user into the database
          */
         public bool Save()
         {
@@ -75,9 +75,71 @@ namespace BO_Orderie
             return (cmd.ExecuteNonQuery() > 0);
         }
 
+        
         /*
-         *  updating users from database
-         * 
+         * READ: static method for loading all users
+         * returns allRows after filled with the singular Objects (variables filled with DataReader)
+         */
+
+        public static Users LoadAll()
+        {
+            SqlCommand cmd = new SqlCommand("select userID, firstName, lastName, username, pwd, isManager from Users", Main.GetConnection());
+            SqlDataReader reader = cmd.ExecuteReader();
+            Users allRows = new Users(); //initializing empty Users list object
+            while (reader.Read())
+            {
+                User singleUser = fillUserFromSQLDataReader(reader);
+                allRows.Add(singleUser);
+            }
+            return allRows;
+        }
+
+        private static User fillUserFromSQLDataReader(SqlDataReader reader)
+        {
+            User singleUser = new User();
+            singleUser.userID = reader.GetString(0);
+            singleUser.firstName = reader.GetString(1);
+            singleUser.lastName = reader.GetString(2);
+            singleUser.username = reader.GetString(3);
+            singleUser.pwd = reader.GetString(4);
+            singleUser.isManager = reader.GetBoolean(5);
+            return singleUser;
+        }
+
+        /*
+         * READ: returning userinformation based on ID
+         */
+
+        public static User getUserById(string id)
+        {
+            Users us = BO_Orderie.User.LoadAll();
+            foreach (User u in us)
+            {
+                if (u.userID.Equals(id))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+        /*
+        * READ: returning userinformation based on username
+         */
+        public static User getUserByUsername(string username)
+        {
+            Users us = BO_Orderie.User.LoadAll();
+            foreach (User u in us)
+            {
+            if (u.username.Equals(username))
+            {
+                return u;
+            }
+            }
+                 return null;
+         }
+
+        /*
+         *  UPDATE: updating users from database
          * */
 
         public bool Update()
@@ -95,7 +157,7 @@ namespace BO_Orderie
         }
 
         /*
-         *  updating user password from database
+         *  UPDATE: updating user password from database
          * 
          * */
 
@@ -114,17 +176,16 @@ namespace BO_Orderie
         }
 
         /*
-         * deleting users from database
+         * DELETE: deleting users from database
          * 
-         * edit da steht bei seiner Kundenapplikation dass da iwas nicht funktioniert, anschauen ob das eh so passt
          */
 
-        public bool Delete() // !!!!!!!!!!!!! edit checken
+        public bool Delete() 
         {
             if (m_userID != "")
             {
-                SqlCommand cmd = new SqlCommand("delete User where userID = @u_id", Main.GetConnection());
-                cmd.Parameters.Add(new SqlParameter("userID", m_userID));
+                SqlCommand cmd = new SqlCommand("delete Users where userID = @u_id", Main.GetConnection());
+                cmd.Parameters.Add(new SqlParameter("u_id", m_userID));
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     m_userID = "";
@@ -135,95 +196,6 @@ namespace BO_Orderie
             else return true;
         }
 
-        /*
-         * static method for loading all users
-         */
-
-        public static Users LoadAll()
-        {
-            SqlCommand cmd = new SqlCommand("select userID, firstName, lastName, username, pwd, isManager from Users", Main.GetConnection());
-            SqlDataReader reader = cmd.ExecuteReader();
-            Users allRows = new Users(); //initializing empty Users list object
-            while (reader.Read())
-            {
-                User singleUser = fillUserFromSQLDataReader(reader);
-                allRows.Add(singleUser);
-            }
-            return allRows;
-        }
-
-        /*
-         * loading entire userinformation
-         */
-
-        private static User fillUserFromSQLDataReader(SqlDataReader reader)
-        {
-            User singleUser = new User();
-            singleUser.userID = reader.GetString(0);
-            singleUser.firstName = reader.GetString(1);
-            singleUser.lastName = reader.GetString(2);
-            singleUser.username = reader.GetString(3);
-            singleUser.pwd = reader.GetString(4);
-            singleUser.isManager = reader.GetBoolean(5);
-            return singleUser;
-        }
-
-        /*
-         * returning userinformation based on ID
-         */
-
-        public static User getUserById(string id)
-        {
-            Users us = BO_Orderie.User.LoadAll();
-            foreach (User u in us)
-            {
-                if (u.userID.Equals(id))
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
-
-        /*
-         * returning userinformation based on username
-         */
-
-
-// edit  is name okay for this bool?
-/*
-public static Boolean hasPermission(String username)
-{
-   Users us = BO_Orderie.User.LoadAll();
-   foreach (User u in us)
-   {
-       string pwdHashed = GetMD5Hash(pwd); //hash user-login input to compare with hashed pw in database
-       if(u.username.Equals(username) && u.pwd.Equals(pwdHashed))
-       {
-           return true;
-       }
-   }
-   return false;
-} 
-
-    or? 
-
-            if return of getbyusername.ismanager (is true) > permission granted
-             
-             */
-
-public static User getUserByUsername(string username)
-{
-    Users us = BO_Orderie.User.LoadAll();
-    foreach (User u in us)
-    {
-        if (u.username.Equals(username))
-        {
-            return u;
-        }
-    }
-    return null;
-}
 
 }
 }

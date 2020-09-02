@@ -25,10 +25,9 @@ namespace PL_Orderie
         {
             String username = textUsername.Text.ToString();
             String pwd = textPwd.Text.ToString();
-            Boolean loginOk = BO_Orderie.Main.login(username, pwd);
+            Boolean loginOk = BO_Orderie.Main.login(username, pwd); // Return value User object better solution?
             if (loginOk)
             {
-                labelHint.Text = "true";
                 Session["username"] = username;
                 Session["password"] = pwd;
                 BO_Orderie.User user = BO_Orderie.User.getUserByUsername(username);

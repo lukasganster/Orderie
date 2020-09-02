@@ -64,6 +64,7 @@ namespace PL_Orderie
                 else user.isManager = false;
                 user.pwd = password.Text;
                 user.Save();
+                Response.Redirect("OverviewUsers.aspx");
             }
             else
             {
@@ -73,14 +74,13 @@ namespace PL_Orderie
                 if (ddIsManager.SelectedValue == "Manager") user.isManager = true;
                 else user.isManager = false;
                 user.Update();
-                if (password.Text != "") {
+                if (password.Text != "" && (password.Text == confirmPasswordTextBox.Text)) {
                     user.pwd = password.Text;
                     String s = user.UpdatePassword();
-                    labelPassword.Text = "Password changed: " + password.Text + " / " + s;
-
+                    Response.Redirect("OverviewUsers.aspx");
                 }
             }
-            Response.Redirect("OverviewUsers.aspx");
+            
         }
     }
 }

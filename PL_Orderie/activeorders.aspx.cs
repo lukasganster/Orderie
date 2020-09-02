@@ -29,10 +29,8 @@ namespace PL_Orderie
         }
 
         /*
-         * edit
          * 
-         * displaying the table that corresponds to the selected index in the dropdown?
-         * sorry dass ich das noch immer nicht überreiß )':
+         * displaying the table that corresponds to the selected index in the dropdown
          */
 
         protected void GVtables_SelectedIndexChanged(object sender, ListViewSelectEventArgs e)

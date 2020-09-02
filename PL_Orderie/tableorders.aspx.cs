@@ -21,8 +21,8 @@ namespace PL_Orderie
 
             if (!IsPostBack)
             {
-                tables = BO_Orderie.Table.LoadAll(); //hier stecken alle Tables als einzelne Objekte drin!
-                Session["tables"] = tables; // die heb ich mir in der Session auf
+                tables = BO_Orderie.Table.LoadAll();
+                Session["tables"] = tables; // saves in session
             }
             else
             {
@@ -32,15 +32,22 @@ namespace PL_Orderie
             currentTable = (BO_Orderie.Table)Session["table"];
             lblNr.Text = "Orders for " + currentTable.tableName;
 
+            // Sets order count for table
+
             orders = BO_Orderie.Table.LoadOrdersForTable(currentTable);
             lblNr.Text += " (" + orders.Count +")";
 
+            // If table has no orders
             if (orders.Count <= 0) lblNr.Text = currentTable.tableName + " has no active orders";
 
             lvOrders.DataSource = orders;
             lvOrders.DataBind();
         }
 
+
+        /*
+         * Sets order as paid and removes it
+         * */
         protected void lvOrders_Select(object sender, ListViewSelectEventArgs e)
         {
             Order o = orders[e.NewSelectedIndex];

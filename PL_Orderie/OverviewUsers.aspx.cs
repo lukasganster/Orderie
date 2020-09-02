@@ -44,8 +44,8 @@ namespace PL_Orderie
         {
            allUsers = BO_Orderie.User.LoadAll();
            User user = allUsers[e.ItemIndex];
-            allUsers.Remove(user);
-            user.Delete();
+           user.Delete();
+           allUsers.Remove(user);
            GVUsers.DataSource = allUsers;
            GVUsers.DataBind();
         }

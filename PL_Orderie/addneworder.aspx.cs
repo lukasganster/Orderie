@@ -51,7 +51,7 @@ namespace PL_Orderie
         protected void addProduct_Click(object sender, EventArgs e)
         {
             selectTable();
-            selectedProducts = (Products)Session["selectedProducts"];           //edit, kannst du mir erklären warum selecttable() & sessionaufruf?
+            selectedProducts = (Products)Session["selectedProducts"];         
             Response.Redirect("addproducttoorder.aspx");
         }
 

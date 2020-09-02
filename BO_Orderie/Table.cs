@@ -31,20 +31,13 @@ namespace BO_Orderie
         // METHODS **********************************************************************************************************
 
         /*
-        * inserting a new table into the database
-        */
-
-
-        //Edit
-        //Delete
-
-        /*
-         * static method for loading each individual table corresponding to their order status
+         * READ: static method for loading each individual table corresponding to their current order status
+         * returns allRows after filled with the singular Objects (variables filled with DataReader)
          */
 
         public static Tables LoadAll()
         {
-            string query = "select distinct t.TableID,t.tableName,o.paid from Tables t left join Orders o on t.TableID=o.tableID where paid = 0 and t.active = 1 union select distinct t.TableID,t.tableName,o.paid from Tables t left join Orders o on t.TableID = o.tableID where t.active = 1 and t.TableID not in (select t1.TableID from Tables t1 left join Orders o on t1.TableID = o.tableID where paid = 0 and t1.active = 1);";
+            string query = "select distinct t.TableID,t.tableName,o.paid from Tables t left join Orders o on t.TableID=o.tableID where paid = 0 and t.active = 1 union select distinct t.TableID,t.tableName,o.paid from Tables t left join Orders o on t.TableID = o.tableID where t.active = 1 and t.TableID not in (select t1.TableID from Tables t1 left join Orders o on t1.TableID = o.tableID where paid = 0 and t1.active = 1) order by tableName;";
             SqlCommand cmd = new SqlCommand(query, Main.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Tables allRows = new Tables(); //initializing empty list
@@ -55,10 +48,6 @@ namespace BO_Orderie
             }
             return allRows;
         }
-
-        /*
-         * 
-         */
 
         private static Table fillTableFromSQLDataReader(SqlDataReader reader)
         {
@@ -80,7 +69,7 @@ namespace BO_Orderie
         }
 
         /*
-        /* view active orders with corresponding products for this table
+        /* READ: view active orders with corresponding products for this table
         */
         public static Orders LoadOrdersForTable(Table selectedTable)
         {
@@ -101,9 +90,12 @@ namespace BO_Orderie
             return allOrders;
         }
 
+        /*
+         * DELETE: delete Table according to ID
+         */
+
         public bool Delete()
         {
-            //string SQL = "delete from Products where productID = @p_id";
             string SQL = "update Tables set active = 0 where TableID = @p_id";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
@@ -111,6 +103,10 @@ namespace BO_Orderie
             cmd.Parameters.Add(new SqlParameter("p_id", this.m_tableID));
             return (cmd.ExecuteNonQuery() > 0);
         }
+
+        /*
+         * CREATE: create new table
+         */
 
         public bool SaveTable()
         {
@@ -124,6 +120,10 @@ namespace BO_Orderie
             cmd.Parameters.Add(new SqlParameter("p_n", this.m_tableName));
             return (cmd.ExecuteNonQuery() > 0);
         }
+
+        /*
+         * UPDATE: updating table information via Maintenance
+         */
 
         public bool UpdateTable()
         {

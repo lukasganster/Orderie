@@ -66,6 +66,10 @@ namespace PL_Orderie
             String s = ddCurrencies.SelectedValue;
         }
 
+        /*
+         *  Save new or existing product
+         */
+
         protected void saveProduct(object sender, EventArgs e)
         {
             product = (BO_Orderie.Product)Session["selectedProduct"];
@@ -100,8 +104,7 @@ namespace PL_Orderie
 
 
         /*
-         * edit !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * es wirft mir da immer fehler, man kommt nicht in die methode
+         * File upload image and extension
          */
 
         protected void UploadButton_Click(object sender, EventArgs e)
